@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vahideh — UX Research</title>
+<meta name="description" content="UX research portfolio: mixed-methods research for marketplace and mobility products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a researcher's field notebook. Narrow reading column, case studies as
+   "study cards" with method / sample metadata, key findings marked with highlighter. */
+:root{
+  --paper:#F5F7F4; --ink:#17201E; --muted:#56635F; --line:#D7DEDA;
+  --teal:#1F5C55; --mark:#F3DC5A; --card:#FFFFFF;
+  --display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121816; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --teal:#7CC7BB; --mark:#8C7A1E; --card:#19211F; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#121816; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --teal:#7CC7BB; --mark:#8C7A1E; --card:#19211F; color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body);padding-inline:20px}
+.wrap{max-width:68rem;margin-inline:auto}
+a{color:var(--teal);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.1;margin:0}
+mark{background:linear-gradient(transparent 55%, var(--mark) 55%);color:inherit;padding-inline:2px}
+.label{font:500 .75rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* Nav */
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:24px;border-bottom:1px solid var(--line)}
+nav .name{font:700 1.05rem var(--display);text-decoration:none;color:var(--ink)}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem}
+nav ul a:hover{color:var(--ink)}
+
+/* Hero */
+.hero{padding-block:72px 56px;display:grid;gap:28px;max-width:46rem}
+.hero h1{font-size:clamp(2.3rem,6vw,4rem);font-weight:700;letter-spacing:-.02em}
+.hero p{font-size:1.2rem;color:var(--muted);margin:0;max-width:38rem}
+.hero .facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin:0;padding:0;list-style:none}
+.hero .facts li{font:400 .9rem var(--mono);color:var(--ink)}
+.hero .facts b{font-weight:500;color:var(--teal)}
+
+section{padding-block:56px;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.section-head h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}
+
+/* Case studies */
+.studies{display:grid;gap:24px}
+.study{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:32px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px}
+.study .meta{display:grid;gap:14px;align-content:start}
+.study .meta dl{margin:0;display:grid;gap:10px}
+.study .meta dt{font:500 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.study .meta dd{margin:0;font:400 .9rem/1.4 var(--mono)}
+.study h3{font-size:1.45rem;margin-bottom:12px}
+.study .rq{font-style:italic;color:var(--muted);margin:0 0 16px}
+.study .body{min-width:0}
+.study .body p{margin:0 0 12px;max-width:62ch}
+.study .impact{display:flex;gap:10px;align-items:baseline;border-top:1px dashed var(--line);padding-top:14px;margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:400 .75rem var(--mono);border:1px solid var(--line);border-radius:99px;padding:3px 10px;color:var(--muted)}
+
+/* Methods */
+.methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:28px 40px}
+.methods h3{font-size:1.1rem;margin-bottom:8px}
+.methods p{margin:0;color:var(--muted);font-size:.98rem}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px}
+.about p{margin:0 0 14px;max-width:62ch}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.timeline li{display:grid;grid-template-columns:5.5rem 1fr;gap:12px}
+.timeline .yr{font:400 .85rem var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Contact */
+.contact{display:grid;gap:18px}
+.contact h2{font-size:clamp(1.8rem,4.5vw,2.8rem);max-width:30rem}
+.contact .links{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:1.05rem}
+footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+
+@media (max-width:720px){
+  .study{grid-template-columns:1fr;gap:20px;padding:22px}
+  .about{grid-template-columns:1fr;gap:32px}
+  .hero{padding-block:48px 40px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav aria-label="Main">
+  <a class="name" href="#top">Vahideh</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#methods">Methods</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <span class="label">UX Researcher</span>
+  <h1>I find out why people do what they do, and turn it into decisions teams can ship.</h1>
+  <p>Mixed-methods research for marketplace and mobility products: surveys at scale, interviews, usability and unmoderated design testing, in Persian and English.</p>
+  <ul class="facts">
+    <li><b>Based in</b> Tehran</li>
+    <li><b>Focus</b> marketplace · mobility · payments</li>
+    <li><b>Languages</b> فارسی · English</li>
+  </ul>
+</header>
+
+<section id="work">
+  <div class="section-head">
+    <h2>Selected studies</h2>
+    <span class="label">Research question → finding → impact</span>
+  </div>
+
+  <div class="studies">
+    <!-- EDIT: replace each study below with your own. Keep the same structure. -->
+    <article class="study">
+      <div class="meta">
+        <span class="label">Case study 1</span>
+        <dl>
+          <div><dt>Method</dt><dd>Survey + follow-up interviews</dd></div>
+          <div><dt>Sample</dt><dd>n = 385 survey · 12 interviews</dd></div>
+          <div><dt>Team</dt><dd>Intercity rides</dd></div>
+          <div><dt>Year</dt><dd>2026</dd></div>
+        </dl>
+      </div>
+      <div class="body">
+        <h3>Why passengers abandon intercity booking</h3>
+        <p class="rq">How do passengers decide between booking an intercity ride in the app and other options?</p>
+        <p>Short summary of the context, what you did, and how you chose the method and sample.</p>
+        <p>Key finding written plainly, with the one sentence a PM would remember <mark>highlighted like this</mark>.</p>
+        <div class="impact"><span class="label">Impact</span><span>What the team changed or decided because of the study.</span></div>
+      </div>
+    </article>
+
+    <article class="study">
+      <div class="meta">
+        <span class="label">Case study 2</span>
+        <dl>
+          <div><dt>Method</dt><dd>Unmoderated first-click + preference test</dd></div>
+          <div><dt>Sample</dt><dd>n = 60 per variant</dd></div>
+          <div><dt>Team</dt><dd>Payments</dd></div>
+          <div><dt>Year</dt><dd>2025</dd></div>
+        </dl>
+      </div>
+      <div class="body">
+        <h3>Can users find the wallet top-up?</h3>
+        <p class="rq">Which entry point helps users find top-up fastest, without hurting checkout?</p>
+        <p>Context, test setup and success criteria you set before running it.</p>
+        <p>Result and how confident you are in it, with <mark>the main takeaway</mark> marked.</p>
+        <div class="impact"><span class="label">Impact</span><span>The decision this informed.</span></div>
+      </div>
+    </article>
+
+    <article class="study">
+      <div class="meta">
+        <span class="label">Case study 3</span>
+        <dl>
+          <div><dt>Method</dt><dd>Segmentation (latent class analysis)</dd></div>
+          <div><dt>Sample</dt><dd>n = 1,200 drivers</dd></div>
+          <div><dt>Team</dt><dd>Driver experience</dd></div>
+          <div><dt>Year</dt><dd>2025</dd></div>
+        </dl>
+      </div>
+      <div class="body">
+        <h3>Five kinds of drivers, five different needs</h3>
+        <p class="rq">Which groups of drivers exist in our survey data, and what does each group need from us?</p>
+        <p>How you found the segments and validated them with the team.</p>
+        <p>What made each segment distinct, and <mark>the insight that changed the roadmap</mark>.</p>
+        <div class="impact"><span class="label">Impact</span><span>How the segments are used today.</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="methods">
+  <div class="section-head"><h2>How I work</h2></div>
+  <div class="methods">
+    <div><h3>Surveys at scale</h3><p>Sampling plans, question design without leading wording, pilots before fielding, and segment analysis after.</p></div>
+    <div><h3>Interviews &amp; field work</h3><p>In-depth and telephone interviews with passengers, drivers and B2B customers.</p></div>
+    <div><h3>Design testing</h3><p>First-click, five-second, preference and prototype tests, with success criteria set before launch.</p></div>
+    <div><h3>Reporting for action</h3><p>Reports that start with the questions stakeholders ask and the answers, then the evidence.</p></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-head"><h2>About</h2></div>
+  <div class="about">
+    <div>
+      <p>Write two or three short paragraphs about yourself: how you got into research, what kind of problems you enjoy, and what teams say it is like to work with you.</p>
+      <p>A second paragraph can cover what you are looking for next.</p>
+    </div>
+    <ol class="timeline">
+      <li><span class="yr">20XX–now</span><span>UX Researcher, Snapp</span></li>
+      <li><span class="yr">20XX–20XX</span><span>Previous role</span></li>
+      <li><span class="yr">20XX</span><span>Degree, university</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <span class="label">Contact</span>
+  <h2>Have a question your team can't answer yet? Let's talk.</h2>
+  <div class="links">
+    <span>your.email@example.com</span>
+    <a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/vahideHNF" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<footer>© 2026 Vahideh</footer>
+</div>
+</body>
+</html>
