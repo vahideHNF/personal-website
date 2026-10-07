@@ -2,226 +2,369 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Vahideh — UX Research</title>
-<meta name="description" content="UX research portfolio: mixed-methods research for marketplace and mobility products.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vahideh Hanifzadeh — UX Researcher</title>
+<meta name="description" content="Vahideh Hanifzadeh, UX Researcher at Snapp. Mixed-methods research, survey design, usability and information architecture.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap">
 <style>
-/* Layout: a researcher's field notebook. Narrow reading column, case studies as
-   "study cards" with method / sample metadata, key findings marked with highlighter. */
+/* Style based on the Phantom Jekyll theme (github.com/jamigibbs/phantom):
+   grey page, white centred column, Merriweather headings, outline buttons,
+   alternating project rows with short underline bars and grey tag chips. */
 :root{
-  --paper:#F5F7F4; --ink:#17201E; --muted:#56635F; --line:#D7DEDA;
-  --teal:#1F5C55; --mark:#F3DC5A; --card:#FFFFFF;
-  --display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
-  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --page:#E9EDF0; --main:#FFFFFF; --edge:#CEDFEA;
+  --ink:#0A0A0A; --text:#333333; --muted:#777777; --soft:#9EB1BD;
+  --btn-ink:#2E4453; --btn-line:#D5E0E7; --btn-hover:#B0C5D2;
+  --bar:#ECEFF1; --chev:#C8D7E1; --link:#1E6FB8; --hover:#FF5B33;
+  --nav:#F8F8F8; --nav-line:#E7E7E7;
+  --serif:"Merriweather", Georgia, serif;
+  --sans:"Open Sans", "Helvetica Neue", Arial, sans-serif;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#121816; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
-  --teal:#7CC7BB; --mark:#8C7A1E; --card:#19211F; color-scheme:dark }}
-:root[data-theme="dark"]{
-  --paper:#121816; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
-  --teal:#7CC7BB; --mark:#8C7A1E; --card:#19211F; color-scheme:dark }
-
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body);padding-inline:20px}
-.wrap{max-width:68rem;margin-inline:auto}
-a{color:var(--teal);text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.1;margin:0}
-mark{background:linear-gradient(transparent 55%, var(--mark) 55%);color:inherit;padding-inline:2px}
-.label{font:500 .75rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+body{margin:0;background:var(--page);color:var(--text);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:700;color:var(--ink);margin:0;line-height:1.25;text-wrap:balance}
+p{margin:0;line-height:1.8;font-size:1.15rem}
+a{color:var(--link);text-decoration:none;transition:color .2s ease-in-out}
+a:hover{color:var(--hover)}
+a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radius:2px}
 
-/* Nav */
-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:24px;border-bottom:1px solid var(--line)}
-nav .name{font:700 1.05rem var(--display);text-decoration:none;color:var(--ink)}
-nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
-nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem}
-nav ul a:hover{color:var(--ink)}
+.main{max-width:1200px;margin:0 auto;background:var(--main);border-inline:1px solid var(--edge);min-height:100vh}
+.inner{padding-inline:clamp(16px,5vw,64px)}
+
+/* Navbar */
+.navbar{position:fixed;inset:0 0 auto 0;z-index:10;background:var(--nav);border-bottom:1px solid var(--nav-line)}
+.navbar .bar{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 16px;min-height:50px}
+.navbar .brand{color:var(--muted);font-size:18px}
+.navbar .brand:hover{color:var(--ink)}
+.navbar ul{display:flex;gap:4px 22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.navbar ul a{color:var(--muted);font-size:14px;padding-block:14px;display:inline-block}
+.navbar ul a:hover{color:var(--ink)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:12px 30px;border:1px solid var(--btn-line);border-radius:4px;background:#fff;color:var(--btn-ink);font:600 16px var(--sans);transition:border-color .2s, box-shadow .2s}
+.btn:hover{color:var(--btn-ink);border-color:var(--btn-hover);box-shadow:0 1px 0 var(--btn-hover)}
+.btn svg{width:18px;height:18px;flex:none;fill:currentColor}
 
 /* Hero */
-.hero{padding-block:72px 56px;display:grid;gap:28px;max-width:46rem}
-.hero h1{font-size:clamp(2.3rem,6vw,4rem);font-weight:700;letter-spacing:-.02em}
-.hero p{font-size:1.2rem;color:var(--muted);margin:0;max-width:38rem}
-.hero .facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin:0;padding:0;list-style:none}
-.hero .facts li{font:400 .9rem var(--mono);color:var(--ink)}
-.hero .facts b{font-weight:500;color:var(--teal)}
+.hero{padding:calc(50px + 9em) 0 6em;text-align:center}
+.hero-content{max-width:46rem;margin:0 auto}
+.hero h1{font-size:clamp(2rem,5vw,3rem)}
+.hero p{margin:1.6em auto 2.6em;color:var(--text)}
+.hero-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.section-jump{display:table;margin:4.5em auto 0;color:var(--chev);position:relative;top:0;transition:top .2s ease-in}
+.section-jump:hover{top:3px;color:var(--chev)}
+.section-jump svg{width:36px;height:36px;display:block}
 
-section{padding-block:56px;border-top:1px solid var(--line)}
-.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:32px}
-.section-head h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}
+/* Section titles */
+.section{padding:6em 0 2em}
+.section-title{text-align:center;font-size:clamp(1.6rem,3.2vw,2.1rem);position:relative;padding-bottom:.6em;margin-bottom:.9em}
+.section-title::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:3em;height:3px;background:var(--bar)}
+.section-subtitle{text-align:center;max-width:34rem;margin:0 auto;color:var(--text)}
 
-/* Case studies */
-.studies{display:grid;gap:24px}
-.study{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:32px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px}
-.study .meta{display:grid;gap:14px;align-content:start}
-.study .meta dl{margin:0;display:grid;gap:10px}
-.study .meta dt{font:500 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.study .meta dd{margin:0;font:400 .9rem/1.4 var(--mono)}
-.study h3{font-size:1.45rem;margin-bottom:12px}
-.study .rq{font-style:italic;color:var(--muted);margin:0 0 16px}
-.study .body{min-width:0}
-.study .body p{margin:0 0 12px;max-width:62ch}
-.study .impact{display:flex;gap:10px;align-items:baseline;border-top:1px dashed var(--line);padding-top:14px;margin-top:4px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font:400 .75rem var(--mono);border:1px solid var(--line);border-radius:99px;padding:3px 10px;color:var(--muted)}
+/* Project rows */
+.projects{margin-top:5em;display:grid;gap:7em}
+.post-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center}
+.post-row:nth-child(even) .content{order:2}
+.content .label{font-size:13px;font-weight:600;color:var(--soft);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.8em;display:block}
+.content h3{font-size:1.55rem;position:relative;padding-bottom:.7em;margin-bottom:1em}
+.content h3::after{content:"";position:absolute;bottom:0;left:0;width:3em;height:3px;background:var(--bar)}
+.content p{max-width:34rem}
+.content p + p{margin-top:.9em}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:2em}
+.tags span{color:var(--soft);background:var(--bar);padding:.45em 1.3em;font-size:14px}
 
-/* Methods */
-.methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:28px 40px}
-.methods h3{font-size:1.1rem;margin-bottom:8px}
-.methods p{margin:0;color:var(--muted);font-size:.98rem}
+/* "Featured image" panel: a figure card standing in for a screenshot */
+.figure{background:#F5F8FA;border:1px solid var(--btn-line);border-radius:4px;overflow:hidden}
+.figure .chrome{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--btn-line);background:#fff}
+.figure .chrome i{width:9px;height:9px;border-radius:50%;background:var(--btn-line)}
+.figure .stats{display:grid;gap:1px;background:var(--btn-line);grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr))}
+.figure .stat{background:#F5F8FA;padding:2.2em 1.6em;text-align:center}
+.figure .num{font:700 clamp(2.2rem,4.5vw,3.2rem)/1 var(--serif);color:var(--btn-ink);font-variant-numeric:tabular-nums}
+.figure .cap{margin-top:.7em;font-size:14px;color:var(--muted);line-height:1.5}
+.figure .list{list-style:none;margin:0;padding:1.6em 1.8em;display:grid;gap:.9em}
+.figure .list li{display:grid;grid-template-columns:1.6rem 1fr;gap:.4em;font-size:15px;line-height:1.5}
+.figure .list b{font:700 14px var(--serif);color:var(--soft)}
 
-/* About */
-.about{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px}
-.about p{margin:0 0 14px;max-width:62ch}
-.timeline{list-style:none;margin:0;padding:0;display:grid;gap:18px}
-.timeline li{display:grid;grid-template-columns:5.5rem 1fr;gap:12px}
-.timeline .yr{font:400 .85rem var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+/* Experience */
+.timeline{max-width:48rem;margin:4em auto 0;list-style:none;padding:0}
+.timeline > li{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:24px;padding:2em 0;border-top:1px solid #EFEFEF}
+.timeline > li:first-child{border-top:0}
+.timeline .when{font-size:14px;color:var(--soft);font-weight:600;font-variant-numeric:tabular-nums;padding-top:.3em}
+.timeline h3{font-size:1.15rem}
+.timeline .org{color:var(--muted);margin-top:.2em;font-size:15px}
+.timeline ul{margin:.9em 0 0;padding-left:1.1em;display:grid;gap:.5em}
+.timeline ul li{line-height:1.7}
+
+/* Skills grid */
+.facts{max-width:60rem;margin:4em auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:40px 48px}
+.facts h3{font-size:1.05rem;position:relative;padding-bottom:.6em;margin-bottom:1em}
+.facts h3::after{content:"";position:absolute;bottom:0;left:0;width:2.4em;height:3px;background:var(--bar)}
+.facts ul{list-style:none;margin:0;padding:0;display:grid;gap:.55em}
+.facts li{line-height:1.5}
+.facts .sub{color:var(--soft);font-size:14px}
 
 /* Contact */
-.contact{display:grid;gap:18px}
-.contact h2{font-size:clamp(1.8rem,4.5vw,2.8rem);max-width:30rem}
-.contact .links{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:1.05rem}
-footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+.contact{text-align:center;padding:7em 0 6em}
+.contact p{max-width:34rem;margin:0 auto 2.4em}
 
-@media (max-width:720px){
-  .study{grid-template-columns:1fr;gap:20px;padding:22px}
-  .about{grid-template-columns:1fr;gap:32px}
-  .hero{padding-block:48px 40px}
+/* Footer */
+.site-footer{border-top:1px solid #EFEFEF;padding:1em 0;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.site-footer p{font-size:12px;font-weight:600;color:var(--soft);margin:0}
+.site-footer .section-jump{margin:0}
+
+/* Reveal on scroll (Phantom's "wow fadeIn") */
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+
+@media (max-width:860px){
+  .post-row{grid-template-columns:1fr;gap:28px}
+  .post-row:nth-child(even) .content{order:0}
+  .projects{gap:4.5em}
+  .hero{padding:calc(50px + 4.5em) 0 4em}
+  .section{padding-top:4em}
 }
+@media (max-width:600px){
+  .timeline > li{grid-template-columns:1fr;gap:6px}
+  .navbar ul{gap:4px 14px}
+  .navbar .brand{font-size:16px}
+  .hero-buttons .btn{width:100%;justify-content:center;max-width:20rem}
+}
+@media (max-width:420px){ .navbar ul li.opt{display:none} }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<nav aria-label="Main">
-  <a class="name" href="#top">Vahideh</a>
-  <ul>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#methods">Methods</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<nav class="navbar" aria-label="Main">
+  <div class="bar">
+    <a class="brand" href="#top">Vahideh Hanifzadeh</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li class="opt"><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-<header class="hero" id="top">
-  <span class="label">UX Researcher</span>
-  <h1>I find out why people do what they do, and turn it into decisions teams can ship.</h1>
-  <p>Mixed-methods research for marketplace and mobility products: surveys at scale, interviews, usability and unmoderated design testing, in Persian and English.</p>
-  <ul class="facts">
-    <li><b>Based in</b> Tehran</li>
-    <li><b>Focus</b> marketplace · mobility · payments</li>
-    <li><b>Languages</b> فارسی · English</li>
-  </ul>
+<div class="main" id="top">
+<div class="inner">
+
+<header class="hero">
+  <div class="hero-content">
+    <h1>Hello. I'm Vahideh Hanifzadeh.</h1>
+    <p>I'm a UX researcher at Snapp! in Tehran. I plan and run mixed-methods research (surveys, interviews, usability and design testing) and turn it into decisions product teams can ship. <a href="#contact">Why not get in touch?</a></p>
+    <div class="hero-buttons">
+      <a class="btn" href="https://www.linkedin.com/in/vahide-hanifzade" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+      <a class="btn" href="https://www.behance.net/vahidehanifzade" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 11.3c.9-.4 1.6-1.2 1.6-2.4C9.4 6.6 7.8 6 5.9 6H0v12h6.1c2.2 0 4.2-1 4.2-3.5 0-1.5-.8-2.7-2.5-3.2zM2.7 8.1h2.6c1 0 1.9.3 1.9 1.4 0 1.1-.7 1.5-1.7 1.5H2.7V8.1zm2.9 7.8H2.7v-3.3h3c1.2 0 2 .5 2 1.8 0 1.2-.9 1.5-2.1 1.5zM15.4 2.9h5.2v1.4h-5.2zM24 14.1c0-2.9-1.7-5.3-4.8-5.3-3 0-5 2.2-5 5.2 0 3.1 1.9 5.2 5 5.2 2.3 0 3.9-1.1 4.6-3.3h-2.4c-.3.8-1.3 1.3-2.2 1.3-1.7 0-2.5-.9-2.5-2.5H24v-.6zm-7.3-1.2c.1-1.3.9-2.1 2.3-2.1 1.3 0 2 .8 2.1 2.1h-4.4z"/></svg>Behance</a>
+      <a class="btn" href="mailto:hanifzade.77@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.5l10 6.25L22 6.5V6H2zm20 2.86-9.47 5.92a1 1 0 0 1-1.06 0L2 8.86V18h20V8.86z"/></svg>Email</a>
+    </div>
+  </div>
+  <a class="section-jump" href="#work" aria-label="Jump to work"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.3 8.3a1 1 0 0 1 1.4 0L12 13.6l5.3-5.3a1 1 0 1 1 1.4 1.4l-6 6a1 1 0 0 1-1.4 0l-6-6a1 1 0 0 1 0-1.4z"/></svg></a>
 </header>
 
-<section id="work">
-  <div class="section-head">
-    <h2>Selected studies</h2>
-    <span class="label">Research question → finding → impact</span>
-  </div>
+<section class="section" id="work">
+  <h2 class="section-title reveal">Latest Work</h2>
+  <p class="section-subtitle reveal">Research for ride-hailing, e-commerce and enterprise software. Here is what I've worked on and what changed because of it.</p>
 
-  <div class="studies">
-    <!-- EDIT: replace each study below with your own. Keep the same structure. -->
-    <article class="study">
-      <div class="meta">
-        <span class="label">Case study 1</span>
-        <dl>
-          <div><dt>Method</dt><dd>Survey + follow-up interviews</dd></div>
-          <div><dt>Sample</dt><dd>n = 385 survey · 12 interviews</dd></div>
-          <div><dt>Team</dt><dd>Intercity rides</dd></div>
-          <div><dt>Year</dt><dd>2026</dd></div>
-        </dl>
-      </div>
-      <div class="body">
-        <h3>Why passengers abandon intercity booking</h3>
-        <p class="rq">How do passengers decide between booking an intercity ride in the app and other options?</p>
-        <p>Short summary of the context, what you did, and how you chose the method and sample.</p>
-        <p>Key finding written plainly, with the one sentence a PM would remember <mark>highlighted like this</mark>.</p>
-        <div class="impact"><span class="label">Impact</span><span>What the team changed or decided because of the study.</span></div>
-      </div>
-    </article>
+  <div class="projects">
 
-    <article class="study">
-      <div class="meta">
-        <span class="label">Case study 2</span>
-        <dl>
-          <div><dt>Method</dt><dd>Unmoderated first-click + preference test</dd></div>
-          <div><dt>Sample</dt><dd>n = 60 per variant</dd></div>
-          <div><dt>Team</dt><dd>Payments</dd></div>
-          <div><dt>Year</dt><dd>2025</dd></div>
-        </dl>
+    <div class="post-row reveal">
+      <div class="content">
+        <span class="label">Snapp! · 2024 – now</span>
+        <h3>Research for passengers, drivers and intercity rides</h3>
+        <p>At Snapp I research Iran's largest ride-hailing service from both sides of the marketplace. I write research plans, design and field surveys for passengers, drivers, intercity travellers and B2B customers, and run interviews and unmoderated design tests in Persian.</p>
+        <p>I also segment survey respondents with latent class analysis and publish a monthly research digest, so teams across the company see what we've learned.</p>
+        <div class="tags"><span>Survey design</span><span>Segmentation (LCA)</span><span>Unmoderated testing</span><span>Interviews</span></div>
       </div>
-      <div class="body">
-        <h3>Can users find the wallet top-up?</h3>
-        <p class="rq">Which entry point helps users find top-up fastest, without hurting checkout?</p>
-        <p>Context, test setup and success criteria you set before running it.</p>
-        <p>Result and how confident you are in it, with <mark>the main takeaway</mark> marked.</p>
-        <div class="impact"><span class="label">Impact</span><span>The decision this informed.</span></div>
+      <div class="figure" aria-hidden="true">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <ul class="list">
+          <li><b>01</b><span>Research plan and success criteria agreed with the product team</span></li>
+          <li><b>02</b><span>Survey or test designed, piloted, then fielded</span></li>
+          <li><b>03</b><span>Analysis and segments people can act on</span></li>
+          <li><b>04</b><span>Findings written as questions and answers for PMs</span></li>
+        </ul>
       </div>
-    </article>
-
-    <article class="study">
-      <div class="meta">
-        <span class="label">Case study 3</span>
-        <dl>
-          <div><dt>Method</dt><dd>Segmentation (latent class analysis)</dd></div>
-          <div><dt>Sample</dt><dd>n = 1,200 drivers</dd></div>
-          <div><dt>Team</dt><dd>Driver experience</dd></div>
-          <div><dt>Year</dt><dd>2025</dd></div>
-        </dl>
-      </div>
-      <div class="body">
-        <h3>Five kinds of drivers, five different needs</h3>
-        <p class="rq">Which groups of drivers exist in our survey data, and what does each group need from us?</p>
-        <p>How you found the segments and validated them with the team.</p>
-        <p>What made each segment distinct, and <mark>the insight that changed the roadmap</mark>.</p>
-        <div class="impact"><span class="label">Impact</span><span>How the segments are used today.</span></div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="methods">
-  <div class="section-head"><h2>How I work</h2></div>
-  <div class="methods">
-    <div><h3>Surveys at scale</h3><p>Sampling plans, question design without leading wording, pilots before fielding, and segment analysis after.</p></div>
-    <div><h3>Interviews &amp; field work</h3><p>In-depth and telephone interviews with passengers, drivers and B2B customers.</p></div>
-    <div><h3>Design testing</h3><p>First-click, five-second, preference and prototype tests, with success criteria set before launch.</p></div>
-    <div><h3>Reporting for action</h3><p>Reports that start with the questions stakeholders ask and the answers, then the evidence.</p></div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="section-head"><h2>About</h2></div>
-  <div class="about">
-    <div>
-      <p>Write two or three short paragraphs about yourself: how you got into research, what kind of problems you enjoy, and what teams say it is like to work with you.</p>
-      <p>A second paragraph can cover what you are looking for next.</p>
     </div>
-    <ol class="timeline">
-      <li><span class="yr">20XX–now</span><span>UX Researcher, Snapp</span></li>
-      <li><span class="yr">20XX–20XX</span><span>Previous role</span></li>
-      <li><span class="yr">20XX</span><span>Degree, university</span></li>
-    </ol>
+
+    <div class="post-row reveal">
+      <div class="content">
+        <span class="label">Digikala · Advertising</span>
+        <h3>Growing the Lightning Deal ad service</h3>
+        <p>Lightning Deal is one of Digikala's advertising services for sellers. I researched how sellers decide whether to run a campaign and where the process stopped them, then worked with the product team on the changes.</p>
+        <div class="tags"><span>Seller research</span><span>Usability</span><span>Business impact</span></div>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="stats">
+          <div class="stat"><div class="num">+17%</div><div class="cap">more campaigns</div></div>
+          <div class="stat"><div class="num">+40%</div><div class="cap">revenue for the service</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-row reveal">
+      <div class="content">
+        <span class="label">Digikala · Seller panel</span>
+        <h3>Restructuring the seller panel navigation</h3>
+        <p>Sellers had trouble finding their reports and insights pages. I rebuilt the navigation menu's information architecture using card sorting, then checked the new structure with tree testing before it shipped.</p>
+        <div class="tags"><span>Card sorting</span><span>Tree testing</span><span>Information architecture</span></div>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="stats">
+          <div class="stat"><div class="num">+20%</div><div class="cap">easier to reach report and insight pages</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-row reveal">
+      <div class="content">
+        <span class="label">System Group · Rahkaran &amp; Sepidar</span>
+        <h3>Redesigning accounting and logistics workflows</h3>
+        <p>I redesigned the core workflows of the Rahkaran and Sepidar enterprise software, focusing on the accounting and logistics modules: interface, grid and layout. I also reorganised Sepidar's navigation menu using card sorting, contributed to the Fanoos design system, and co-wrote a UX research guide for the design team.</p>
+        <div class="tags"><span>Usability testing</span><span>Redesign</span><span>Design system</span></div>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="stats">
+          <div class="stat"><div class="num">−50%</div><div class="cap">task completion time</div></div>
+          <div class="stat"><div class="num">↑</div><div class="cap">task success rate, measured in usability tests</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-row reveal">
+      <div class="content">
+        <span class="label">Diginext Academy · Rahnema College</span>
+        <h3>Mentoring new researchers and designers</h3>
+        <p>I've mentored more than 50 students. At Diginext Academy I helped over 30 of them write research plans and run and analyse user interviews and usability tests. At Rahnema College I guided 8 students through the design thinking process.</p>
+        <div class="tags"><span>Mentoring</span><span>Research plans</span><span>Design thinking</span></div>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="stats">
+          <div class="stat"><div class="num">50+</div><div class="cap">students mentored in UX research and design</div></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section id="contact" class="contact">
-  <span class="label">Contact</span>
-  <h2>Have a question your team can't answer yet? Let's talk.</h2>
-  <div class="links">
-    <span>your.email@example.com</span>
-    <a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/vahideHNF" rel="noopener">GitHub</a>
+<section class="section" id="experience">
+  <h2 class="section-title reveal">Experience</h2>
+  <ol class="timeline">
+    <li class="reveal">
+      <span class="when">Apr 2024 – now</span>
+      <div><h3>User Experience Researcher</h3><div class="org">Snapp! · Tehran</div></div>
+    </li>
+    <li class="reveal">
+      <span class="when">Feb – May 2024</span>
+      <div><h3>UX Research Mentor</h3><div class="org">Diginext Academy</div>
+        <ul><li>Mentored more than 30 students in designing research plans and in running and analysing user interviews and usability tests.</li></ul></div>
+    </li>
+    <li class="reveal">
+      <span class="when">Jan – Mar 2024</span>
+      <div><h3>Product Design Mentor</h3><div class="org">Rahnema College</div>
+        <ul><li>Mentored 8 students in the design thinking process.</li></ul></div>
+    </li>
+    <li class="reveal">
+      <span class="when">Aug 2022 – Apr 2024</span>
+      <div><h3>User Experience Researcher</h3><div class="org">Digikala.com · Tehran</div>
+        <ul>
+          <li>Increased the number of campaigns by 17% and revenue by 40% for Lightning Deal, one of Digikala's advertising services.</li>
+          <li>Rebuilt the seller panel's navigation with card sorting and tree testing, making report and insight pages 20% easier to reach.</li>
+        </ul></div>
+    </li>
+    <li class="reveal">
+      <span class="when">Apr 2021 – Aug 2022</span>
+      <div><h3>User Experience Designer</h3><div class="org">System Group (همکاران سیستم) · Tehran</div>
+        <ul>
+          <li>Redesigned core accounting and logistics workflows in Rahkaran and Sepidar, cutting task completion time by 50% and raising task success in usability tests.</li>
+          <li>Improved Sepidar's navigation menu through card sorting, reducing the time to find menu items.</li>
+          <li>Contributed to the Fanoos design system, working with designers and developers.</li>
+          <li>Brought user research into the design process and co-wrote a UX research guide for the design team.</li>
+        </ul></div>
+    </li>
+  </ol>
+</section>
+
+<section class="section" id="skills">
+  <h2 class="section-title reveal">Skills &amp; Education</h2>
+  <div class="facts">
+    <div class="reveal">
+      <h3>Top skills</h3>
+      <ul>
+        <li>Quantitative user personas</li>
+        <li>Qualitative &amp; quantitative research methods</li>
+        <li>Statistical data analysis</li>
+        <li>Survey design &amp; research planning</li>
+        <li>Prototyping &amp; design thinking</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <h3>Education</h3>
+      <ul>
+        <li>B.Sc. Computer Engineering<br><span class="sub">Shahid Beheshti University · 2017 – 2022</span></li>
+        <li>Human Computer Interaction specialization<br><span class="sub">University of Tehran · 2021 – 2022</span></li>
+        <li>High school diploma, Mathematics<br><span class="sub">NODET (Sampad) · 2013 – 2017</span></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <h3>Certifications</h3>
+      <ul>
+        <li>User Experience Design Certificate</li>
+        <li>Product Design</li>
+        <li>Product Masterclass: How to Build Digital Products</li>
+        <li>Enterprise Design Thinking Practitioner</li>
+        <li>Enterprise Design Thinking – Team Essentials for AI</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <h3>Languages &amp; honours</h3>
+      <ul>
+        <li>Persian <span class="sub">native</span></li>
+        <li>English <span class="sub">professional working</span></li>
+        <li>Ranked 450th in the national university entrance exam</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<footer>© 2026 Vahideh</footer>
+<section class="contact" id="contact">
+  <h2 class="section-title reveal">Get in touch</h2>
+  <p class="reveal">Have a question your team can't answer yet? I'd be happy to talk about research, product or mentoring.</p>
+  <div class="hero-buttons reveal">
+    <a class="btn" href="mailto:hanifzade.77@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.5l10 6.25L22 6.5V6H2zm20 2.86-9.47 5.92a1 1 0 0 1-1.06 0L2 8.86V18h20V8.86z"/></svg>hanifzade.77@gmail.com</a>
+    <a class="btn" href="https://www.linkedin.com/in/vahide-hanifzade" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Vahideh Hanifzadeh</p>
+  <a class="section-jump" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.7 15.7a1 1 0 0 1-1.4 0L12 10.4l-5.3 5.3a1 1 0 0 1-1.4-1.4l6-6a1 1 0 0 1 1.4 0l6 6a1 1 0 0 1 0 1.4z"/></svg></a>
+</footer>
+
 </div>
+</div>
+
+<script>
+// Fade sections in as they scroll into view; content stays visible without JS.
+(function(){
+  document.documentElement.classList.add('js');
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {rootMargin: '0px 0px -8% 0px'});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
 </body>
 </html>
