@@ -81,13 +81,30 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
 .figure{background:#F5F8FA;border:1px solid var(--btn-line);border-radius:4px;overflow:hidden}
 .figure .chrome{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--btn-line);background:#fff}
 .figure .chrome i{width:9px;height:9px;border-radius:50%;background:var(--btn-line)}
-.figure .stats{display:grid;gap:1px;background:var(--btn-line);grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr))}
+.figure .stats{display:grid;gap:1px;background:var(--btn-line);grid-template-columns:repeat(auto-fit,minmax(min(100%,8.5rem),1fr))}
 .figure .stat{background:#F5F8FA;padding:2.2em 1.6em;text-align:center}
 .figure .num{font:700 clamp(2.2rem,4.5vw,3.2rem)/1 var(--serif);color:var(--btn-ink);font-variant-numeric:tabular-nums}
 .figure .cap{margin-top:.7em;font-size:14px;color:var(--muted);line-height:1.5}
 .figure .list{list-style:none;margin:0;padding:1.6em 1.8em;display:grid;gap:.9em}
 .figure .list li{display:grid;grid-template-columns:1.6rem 1fr;gap:.4em;font-size:15px;line-height:1.5}
 .figure .list b{font:700 14px var(--serif);color:var(--soft)}
+
+/* Grouped work: Snapp, then before Snapp */
+.group-title{font-size:clamp(1.35rem,2.6vw,1.7rem);margin-top:4.5em;padding-top:2.5em;border-top:1px solid #EFEFEF}
+.group-title .label{display:block;font:600 13px var(--sans);color:var(--soft);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.6em}
+#snapp{margin-top:3.5em}
+.group-intro{max-width:46rem;margin-top:1em}
+.group-title + .projects{margin-top:4em}
+.group-intro + .projects{margin-top:4.5em}
+.content p b{color:var(--ink);font-weight:600}
+.more{margin-top:7em}
+.more-title{font-size:1.3rem;margin-bottom:1.6em}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr));gap:20px}
+.card{border:1px solid var(--btn-line);border-radius:4px;padding:1.5em 1.5em 1.6em;background:#fff;transition:border-color .2s, box-shadow .2s}
+.card:hover{border-color:var(--btn-hover);box-shadow:0 1px 0 var(--btn-hover)}
+.card .label{font-size:12px;font-weight:600;color:var(--soft);letter-spacing:.04em;text-transform:uppercase;display:block;margin-bottom:.7em}
+.card h4{font:700 1.05rem/1.35 var(--serif);color:var(--ink);margin:0 0 .6em}
+.card p{font-size:.98rem;line-height:1.7;color:var(--text)}
 
 /* Experience */
 .timeline{max-width:48rem;margin:4em auto 0;list-style:none;padding:0}
@@ -169,28 +186,173 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
 
 <section class="section" id="work">
   <h2 class="section-title reveal">Latest Work</h2>
-  <p class="section-subtitle reveal">Research for ride-hailing, e-commerce and enterprise software. Here is what I've worked on and what changed because of it.</p>
+  <p class="section-subtitle reveal">Research for ride-hailing, e-commerce and enterprise software. Each study starts with what we found and ends with what changed.</p>
+
+  <h3 class="group-title reveal" id="snapp"><span class="label">Snapp! · 2024 – now</span>Ride-hailing, intercity &amp; carpool</h3>
+  <p class="group-intro reveal">At Snapp, Iran's largest ride-hailing app, I research both sides of the marketplace: passengers and drivers in city rides, intercity trips, scheduled rides and carpool. I've run 30+ studies, using surveys, interviews, conjoint analysis, usability tests and data analysis. I write SQL myself, so I can pull the data for a study without waiting on anyone. After each study I follow the recommended actions until they ship, then measure the result in experiments.</p>
 
   <div class="projects">
 
     <div class="post-row reveal">
       <div class="content">
-        <span class="label">Snapp! · 2024 – now</span>
-        <h3>Research for passengers, drivers and intercity rides</h3>
-        <p>At Snapp I research Iran's largest ride-hailing service from both sides of the marketplace. I write research plans, design and field surveys for passengers, drivers, intercity travellers and B2B customers, and run interviews and unmoderated design tests in Persian.</p>
-        <p>I also segment survey respondents with latent class analysis and publish a monthly research digest, so teams across the company see what we've learned.</p>
-        <div class="tags"><span>Survey design</span><span>Segmentation (LCA)</span><span>Unmoderated testing</span><span>Interviews</span></div>
+        <span class="label">Intercity · Bidding</span>
+        <h3>Giving drivers feedback before they bid</h3>
+        <p><b>Finding.</b> 84–88% of intercity drivers had tried bidding, but only 49–54% were satisfied with it. Drivers bid blind, with no idea whether a price would win, so they overbid or gave up. 77–89% of dissatisfied passengers said drivers bid two to three times the standard fare. One fixed bidding limit applied to every car, which drivers saw as unfair.</p>
+        <p><b>What changed.</b> A live win-chance indicator based on price, ETA, rating and driver tier, plus driver tiers (Premium / Standard / Economy) with bidding limits that depend on car model and year.</p>
+        <div class="tags"><span>Survey</span><span>Marketplace design</span><span>A/B test</span></div>
       </div>
       <div class="figure" aria-hidden="true">
         <div class="chrome"><i></i><i></i><i></i></div>
-        <ul class="list">
-          <li><b>01</b><span>Research plan and success criteria agreed with the product team</span></li>
-          <li><b>02</b><span>Survey or test designed, piloted, then fielded</span></li>
-          <li><b>03</b><span>Analysis and segments people can act on</span></li>
-          <li><b>04</b><span>Findings written as questions and answers for PMs</span></li>
-        </ul>
+        <div class="stats">
+          <div class="stat"><div class="num">−4.8%</div><div class="cap">average bid price, across all tiers</div></div>
+          <div class="stat"><div class="num">+3.19%</div><div class="cap">bids per request</div></div>
+          <div class="stat"><div class="num">−0.62%</div><div class="cap">passenger cancellations</div></div>
+          <div class="stat"><div class="num">−2s</div><div class="cap">time to accept a bid</div></div>
+        </div>
       </div>
     </div>
+
+    <div class="post-row reveal">
+      <div class="content">
+        <span class="label">Intercity · Driver periodic survey</span>
+        <h3>Why drivers cancel after accepting</h3>
+        <p><b>Finding.</b> One of the main reasons intercity drivers cancelled after accepting was not knowing how many passengers were coming, how much luggage they had, or exactly when the trip started.</p>
+        <p><b>What changed.</b> The request flow was redesigned so passengers set passenger count, luggage and time clearly, and drivers see them before accepting.</p>
+        <p>A second round of the survey led to a <b>verified passenger badge</b> before acceptance (+1.38% ride acceptance). It also showed drivers the <b>passenger's phone number</b> after acceptance on scheduled rides. That cut passenger cancellations before the start by 2.75% and raised finished rides by 17.8% among rides where the driver arrived on time.</p>
+        <div class="tags"><span>Periodic survey</span><span>Driver research</span><span>Flow redesign</span></div>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="stats">
+          <div class="stat"><div class="num">14.3×</div><div class="cap">luggage preference usage</div></div>
+          <div class="stat"><div class="num">4.3×</div><div class="cap">scheduled ride usage</div></div>
+          <div class="stat"><div class="num">+1.69%</div><div class="cap">acceptance</div></div>
+          <div class="stat"><div class="num">−1.73%</div><div class="cap">driver cancellations</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-row reveal">
+      <div class="content">
+        <span class="label">Carpool · Passenger flow</span>
+        <h3>Making the carpool wait less uncertain</h3>
+        <p><b>Finding.</b> I walked through the passenger carpool flow (request, matching, accepting, driver assigned). Passengers got no sign of progress, couldn't see who they were sharing with, and didn't trust the pickup information. That uncertainty made them cancel early.</p>
+        <p><b>What changed.</b> Both passengers' pins and the stop order now appear when the ride is accepted, and the waiting page was redesigned to show clear status while a match is found.</p>
+        <div class="tags"><span>UX audit</span><span>Journey mapping</span><span>A/B test</span></div>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="stats">
+          <div class="stat"><div class="num">−1.5%</div><div class="cap">cancellations after accept (Android)</div></div>
+          <div class="stat"><div class="num">+1.8%</div><div class="cap">finish / accept (Android)</div></div>
+          <div class="stat"><div class="num">+1.3%</div><div class="cap">acceptance from the new waiting page</div></div>
+          <div class="stat"><div class="num">−1.3%</div><div class="cap">cancellations after pairing</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-row reveal">
+      <div class="content">
+        <span class="label">Ride experience · Rating</span>
+        <h3>Can we trust the star ratings?</h3>
+        <p><b>Finding.</b> 17–22% of passengers submitted a rating they didn't mean. The causes were a confusing screen, dismissing it in a rush, and rating late: 40–45% only rated just before their next ride. That made ratings a weak measure of driver performance.</p>
+        <p><b>What changed.</b> We designed and tested rating during the ride, closer to the experience, and asked for a reason whenever someone gives one star.</p>
+        <div class="tags"><span>Survey</span><span>Behavioural data</span><span>A/B test</span></div>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="stats">
+          <div class="stat"><div class="num">+2.3%</div><div class="cap">rating submissions (Android)</div></div>
+          <div class="stat"><div class="num">−1 min</div><div class="cap">ratings given sooner, with no score inflation</div></div>
+          <div class="stat"><div class="num">−0.48%</div><div class="cap">accidental one-star ratings</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-row reveal">
+      <div class="content">
+        <span class="label">Intercity · Offer card</span>
+        <h3>A map in the offer card</h3>
+        <p><b>Finding.</b> Many intercity cancellations happened because drivers misjudged where the origin or destination city actually was before accepting.</p>
+        <p><b>What changed.</b> I proposed a map view in the driver's offer card so the route is clear at a glance, and the team shipped it.</p>
+        <div class="tags"><span>Interviews</span><span>Driver research</span></div>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="stats">
+          <div class="stat"><div class="num">≈−4%</div><div class="cap">intercity driver cancellations</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-row reveal">
+      <div class="content">
+        <span class="label">Research operations</span>
+        <h3>Getting people to answer our surveys</h3>
+        <p><b>Finding.</b> Only 0.9% of users we texted answered our quantitative studies, which made results shaky and SMS costly. I traced the problem to the invitation message itself.</p>
+        <p><b>What changed.</b> I rewrote the SMS invitation. Response rates went up five to six times, which gave every later survey more reliable data at a lower cost per answer.</p>
+        <div class="tags"><span>Survey operations</span><span>UX writing</span></div>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="stats">
+          <div class="stat"><div class="num">0.9%</div><div class="cap">response rate before</div></div>
+          <div class="stat"><div class="num">5–6%</div><div class="cap">response rate after</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="more">
+    <h3 class="more-title reveal">More Snapp studies</h3>
+    <div class="cards">
+      <article class="card reveal">
+        <span class="label">Intercity · Conjoint</span>
+        <h4>What passengers weigh in a bid</h4>
+        <p>The research team's first conjoint study. It measured how much price, ETA, car type and other parts of the bid card matter to intercity passengers, and replaced less precise methods for bid card decisions.</p>
+      </article>
+      <article class="card reveal">
+        <span class="label">Intercity · Bid card</span>
+        <h4>A feature we didn't need to build</h4>
+        <p>The research showed that a driver's number of completed rides doesn't change whether passengers accept a bid, so the feature was dropped. That saved engineering and product time.</p>
+      </article>
+      <article class="card reveal">
+        <span class="label">Intercity · Pricing</span>
+        <h4>Narrowing the bid range</h4>
+        <p>Passenger survey findings on overpricing led to an experiment with lower price multipliers (max 2.5× → 2.2×). Fulfillment rose 1.72% and finish/accept rose 3.8%.</p>
+      </article>
+      <article class="card reveal">
+        <span class="label">Intercity · Driver behaviour</span>
+        <h4>Why drivers take intercity rides from Golchin</h4>
+        <p>Full-time drivers prefer to see city and intercity offers side by side in Golchin. The study warned that removing intercity offers from Golchin would likely lower acceptance.</p>
+      </article>
+      <article class="card reveal">
+        <span class="label">Scheduled rides · Findability</span>
+        <h4>Helping people find scheduled rides</h4>
+        <p>Few people could find the scheduled ride feature. I tested several design versions, and the one that performed best shipped and increased usage.</p>
+      </article>
+      <article class="card reveal">
+        <span class="label">Product strategy · Survey</span>
+        <h4>Multi-destination vs. reserved cabs</h4>
+        <p>A demand survey that helped the product team decide which of two expensive features to build first, based on what users actually need.</p>
+      </article>
+      <article class="card reveal">
+        <span class="label">Carpool</span>
+        <h4>Carpool demand, churn and safety</h4>
+        <p>A series of studies on intercity carpool demand, why drivers and passengers stop using carpool, and what makes it feel safe. They shaped the focus for the following quarters.</p>
+      </article>
+      <article class="card reveal">
+        <span class="label">Ride for a friend · Survey</span>
+        <h4>Booking rides for someone else</h4>
+        <p>Why and how passengers book rides for friends and family, and where the journey breaks. The results led to adding saved contacts to the booking flow.</p>
+      </article>
+    </div>
+  </div>
+
+  <h3 class="group-title reveal" id="before"><span class="label">2021 – 2024</span>Before Snapp</h3>
+
+  <div class="projects">
 
     <div class="post-row reveal">
       <div class="content">
@@ -262,7 +424,13 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
   <ol class="timeline">
     <li class="reveal">
       <span class="when">Apr 2024 – now</span>
-      <div><h3>User Experience Researcher</h3><div class="org">Snapp! · Tehran</div></div>
+      <div><h3>User Experience Researcher</h3><div class="org">Snapp! · Tehran</div>
+        <ul>
+          <li>Led 30+ studies across intercity, carpool, scheduled rides and city rides, for both passengers and drivers.</li>
+          <li>Research behind shipped changes such as bid win-chance and driver tiers (−4.8% bid price), a clearer intercity request flow (driver cancellations −1.73%) and the carpool waiting page (+1.3% acceptance).</li>
+          <li>Raised survey response rates from 0.9% to 5–6% by rewriting the SMS invitation.</li>
+          <li>Ran the research team's first conjoint study. I also learned SQL so I can pull and analyse ride data myself, and brought AI tools into the research workflow.</li>
+        </ul></div>
     </li>
     <li class="reveal">
       <span class="when">Feb – May 2024</span>
@@ -305,6 +473,8 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
         <li>Qualitative &amp; quantitative research methods</li>
         <li>Statistical data analysis</li>
         <li>Survey design &amp; research planning</li>
+        <li>Conjoint analysis &amp; segmentation (LCA)</li>
+        <li>SQL &amp; product data analysis</li>
         <li>Prototyping &amp; design thinking</li>
       </ul>
     </div>
