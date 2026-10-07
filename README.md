@@ -1,14 +1,15 @@
 # personal-website
 
-Vahideh's UX research portfolio. Plain HTML and CSS in a single file (`index.html`), no build step.
+Vahideh Hanifzadeh's UX research portfolio. Plain HTML and CSS in a single file (`index.html`), no build step. The look is based on the [Phantom](https://github.com/jamigibbs/phantom) Jekyll theme.
 
 ## Edit content
 
-Open `index.html` and replace the placeholder text:
+Open `index.html` and edit:
 
-- **Selected studies**: each `<article class="study">` is one case study (method, sample, team, year, research question, finding, impact). Wrap the key sentence in `<mark>` to highlight it.
-- **About**: bio paragraphs and the timeline.
-- **Contact**: email and LinkedIn link.
+- **Latest Work**: each `<div class="post-row">` is one project. The left side has the text and tags, and the `.figure` card on the right shows the key numbers. Rows alternate sides automatically.
+- **Experience**: one `<li>` per role in the `.timeline` list.
+- **Skills & Education**: the four lists in `.facts`.
+- **Contact**: the email and LinkedIn buttons.
 
 ## Publish
 
