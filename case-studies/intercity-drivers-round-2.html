@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intercity Drivers, Round 2 — Vahideh Hanifzadeh</title>
+<meta name="description" content="Case study: repeating the intercity driver survey nine months later showed which fixes worked and which new problems they created.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="case.css">
+</head>
+<body>
+<nav class="navbar" aria-label="Main"><div class="bar">
+  <a href="../index.html#work">← Vahideh Hanifzadeh</a>
+  <a href="../index.html#contact">Contact</a>
+</div></nav>
+
+<div class="main"><article class="wrap">
+
+<header class="case-hero">
+  <span class="kicker">Snapp! · Intercity · Periodic survey, part 2 of 2 · 2026</span>
+  <h1>Nine months later: what changed for intercity drivers, and what our fixes broke</h1>
+  <p class="sub">After the first survey, the intercity team shipped scheduled rides, destination alerts and a bid win-chance indicator. I ran the same survey again to see what had actually changed. Some problems shrank, new ones took their place, and the results set the next round of work.</p>
+  <dl class="meta">
+    <div><dt>My role</dt><dd>UX Researcher (lead)</dd></div>
+    <div><dt>Team</dt><dd>Intercity PMs and designers</dd></div>
+    <div><dt>Timeline</dt><dd>Summer 2026</dd></div>
+    <div><dt>Methods</dt><dd>Repeated survey, round-on-round comparison</dd></div>
+  </dl>
+  <div class="nda" role="note">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2zm0 4.5L19.5 19h-15L12 6.5zM11 10v5h2v-5h-2zm0 6v2h2v-2h-2z"/></svg>
+    <p><b>All numbers on this page are illustrative.</b> The real figures are confidential under NDA. The findings, the direction of every change and the decisions are real.</p>
+  </div>
+</header>
+
+<div class="tldr">
+  <h2>In short</h2>
+  <ul>
+    <li><span>Question</span><div>Did the features shipped after Round 1 improve the intercity driver experience, and what new problems appeared?</div></li>
+    <li><span>Insight</span><div>Fare complaints fell, but competition between drivers and passenger cancellations rose. The fixes had moved the bottleneck, not removed it.</div></li>
+    <li><span>Impact</span><div>A verified-passenger badge shipped (<b>+1.6%</b> ride acceptance), and in-ride return booking and multiple bidding followed.</div></li>
+  </ul>
+</div>
+
+<section>
+  <h2><span class="n">01 — The problem</span>Shipping isn't the same as solving</h2>
+  <p>Between the two rounds, drivers got three big changes: <b>scheduled rides</b>, <b>destination alerts</b> for new requests, and a <b>bid win-chance indicator</b>. Each one targeted something Round 1 had found. But launch dashboards only show whether people use a feature, not whether drivers' experience as a whole improved, or whether one fix created a new problem somewhere else.</p>
+</section>
+
+<section>
+  <h2><span class="n">02 — My role</span>What I owned</h2>
+  <p>I ran Round 2 with the same core questions and the same sample definition as Round 1, so the two rounds could be compared directly. I also added questions for the new features. I analysed what had changed, not just the current numbers, and wrote recommendations ranked by impact and effort.</p>
+</section>
+
+<section>
+  <h2><span class="n">03 — Approach</span>Same questions, same drivers, new answers</h2>
+  <p>A random sample of whitelisted drivers who had finished an intercity ride in the past 45 days, the same definition as Round 1, gave about <b>2,000 valid responses</b> (95% confidence, around ±2 points). For every question I compared Round 2 with Round 1 and reported only the shifts that were bigger than the margin of error.</p>
+  <p><b>Limitation:</b> a repeated survey shows what changed, not what caused it. Several features launched in the same period, so I treated each shift as a strong lead to test, not as proof.</p>
+</section>
+
+<section>
+  <h2><span class="n">04 — What we found</span>The bottleneck moved</h2>
+
+  <div class="insight">
+    <h3>1. Intercity became a habit, and money stopped being the main complaint</h3>
+    <p>More drivers said most of their rides were now intercity (24% → 31%). Fare was still the biggest barrier, but it was cited less often, and cancellations because the fare didn't match the distance dropped sharply.</p>
+  </div>
+
+  <div class="insight">
+    <h3>2. But new problems took their place</h3>
+    <p>As fare complaints fell, two other problems grew. <b>Passengers cancelling or changing plans</b> became a more common reason for drivers to cancel, which we linked to the new scheduled rides (a passenger who books days ahead has more time to change their mind). And <b>competition between drivers</b> became the main complaint about bidding and the intercity list. More drivers felt someone else always accepted the ride first.</p>
+    <figure class="chart">
+      <figcaption>How drivers' answers shifted between rounds</figcaption>
+      <p class="note">Share of drivers · Round 1 vs Round 2 · illustrative numbers</p>
+      <div class="legend"><span><i style="background:var(--before)"></i>Round 1</span><span><i style="background:var(--after)"></i>Round 2</span></div>
+      <ul class="rows">
+        <li class="row" title="Fare is a barrier: Round 1 71%, Round 2 62%"><span class="lbl">Fare is a barrier to intercity</span><span class="bars"><div><span class="b" style="width:95%;background:var(--before)"></span><span class="v">71%</span></div><div><span class="b" style="width:83%;background:var(--after)"></span><span class="v">62%</span></div></span></li>
+        <li class="row" title="Cancelled because fare didn't match distance: Round 1 57%, Round 2 44%"><span class="lbl">Cancelled: fare didn't match distance</span><span class="bars"><div><span class="b" style="width:76%;background:var(--before)"></span><span class="v">57%</span></div><div><span class="b" style="width:59%;background:var(--after)"></span><span class="v">44%</span></div></span></li>
+        <li class="row" title="Cancelled because the passenger cancelled or changed plans: Round 1 19%, Round 2 27%"><span class="lbl">Cancelled: passenger cancelled or changed plans</span><span class="bars"><div><span class="b" style="width:25%;background:var(--before)"></span><span class="v">19%</span></div><div><span class="b" style="width:36%;background:var(--after)"></span><span class="v">27%</span></div></span></li>
+        <li class="row" title="Bidding complaint is other drivers' competition: Round 1 27%, Round 2 40%"><span class="lbl">Bidding complaint: competition from other drivers</span><span class="bars"><div><span class="b" style="width:36%;background:var(--before)"></span><span class="v">27%</span></div><div><span class="b" style="width:53%;background:var(--after)"></span><span class="v">40%</span></div></span></li>
+        <li class="row" title="Avoid the list because others accept faster: Round 1 19%, Round 2 29%"><span class="lbl">Avoid the list: others accept faster</span><span class="bars"><div><span class="b" style="width:25%;background:var(--before)"></span><span class="v">19%</span></div><div><span class="b" style="width:39%;background:var(--after)"></span><span class="v">29%</span></div></span></li>
+      </ul>
+    </figure>
+  </div>
+
+  <div class="insight">
+    <h3>3. Bid win-chance kept drivers trying</h3>
+    <p>After a rejected bid, fewer drivers abandoned the ride (29% → 21%). More of them retried or moved on to another ride. Satisfaction with bidding overall held steady, but the complaints changed from "the bidding feature is confusing" to "too many drivers are bidding", which is a marketplace problem, not a design one.</p>
+  </div>
+
+  <div class="insight">
+    <h3>4. Safety fears changed shape</h3>
+    <p>Overall, drivers' sense of safety held steady, and slightly more of them felt completely safe. But what worried them changed. Fear of crime almost halved, while distrust about <b>payments</b> and <b>unverified passengers</b> grew. Drivers were less afraid of being hurt and more afraid of not being paid or not knowing who they were driving.</p>
+    <figure class="chart">
+      <figcaption>What made drivers feel unsafe</figcaption>
+      <p class="note">Share of drivers · Round 1 vs Round 2 · illustrative numbers</p>
+      <div class="legend"><span><i style="background:var(--before)"></i>Round 1</span><span><i style="background:var(--after)"></i>Round 2</span></div>
+      <ul class="rows">
+        <li class="row" title="Passenger criminal risk: Round 1 32%, Round 2 18%"><span class="lbl">Risk of crime from passengers</span><span class="bars"><div><span class="b" style="width:89%;background:var(--before)"></span><span class="v">32%</span></div><div><span class="b" style="width:50%;background:var(--after)"></span><span class="v">18%</span></div></span></li>
+        <li class="row" title="Unreliable payments: Round 1 28%, Round 2 33%"><span class="lbl">Payments that don't arrive</span><span class="bars"><div><span class="b" style="width:78%;background:var(--before)"></span><span class="v">28%</span></div><div><span class="b" style="width:92%;background:var(--after)"></span><span class="v">33%</span></div></span></li>
+        <li class="row" title="Unverified passengers: Round 1 26%, Round 2 32%"><span class="lbl">Unverified passengers</span><span class="bars"><div><span class="b" style="width:72%;background:var(--before)"></span><span class="v">26%</span></div><div><span class="b" style="width:89%;background:var(--after)"></span><span class="v">32%</span></div></span></li>
+      </ul>
+    </figure>
+  </div>
+
+  <p style="margin-top:2em"><b>One problem that didn't move:</b> driving home empty. It was the only major barrier that didn't improve at all, so it became the top priority.</p>
+</section>
+
+<section>
+  <h2><span class="n">05 — From insight to decisions</span>The next round of work</h2>
+  <table class="decisions">
+    <thead><tr><th>Recommendation</th><th>Why</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Show a verified-passenger badge before the driver accepts</td><td>Concern about unverified passengers rose</td><td><span class="status shipped">Shipped</span></td></tr>
+      <tr><td>Let drivers book a return ride while still on the outbound trip</td><td>Empty returns: the only barrier that didn't improve</td><td><span class="status dev">In development</span></td></tr>
+      <tr><td>Warn passengers about a cancellation penalty for scheduled rides</td><td>Passenger-driven cancellations rose after scheduled rides launched</td><td><span class="status dev">In development</span></td></tr>
+      <tr><td>Multiple bidding, then measure its effect on competition in Round 3</td><td>Competition became the main bidding complaint</td><td><span class="status shipped">Shipped</span></td></tr>
+      <tr><td>Test delaying when intercity offers appear in Golchin, the driver app's main ride feed</td><td>"Others accept faster" kept drivers off the intercity list</td><td><span class="status later">Next</span></td></tr>
+      <tr><td>Fix the fare message that wrongly says tolls are included</td><td>Drivers flagged it in open answers</td><td><span class="status later">Next</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2><span class="n">06 — Impact</span>The first fix, measured</h2>
+  <p>The verified-passenger badge rolled out to all drivers soon after the report:</p>
+  <div class="impact">
+    <div><div class="num">+1.6%</div><div class="cap">ride acceptance rate</div></div>
+    <div><div class="num">+1.3%</div><div class="cap">offers that turned into acceptances</div></div>
+  </div>
+  <p class="impact-note">Illustrative numbers. Real results are confidential.</p>
+  <p style="margin-top:1.2em">The rise in passenger cancellations is explored in depth in a <a href="scheduled-rides.html">separate study of scheduled rides</a>, which led to sharing the passenger's phone number with drivers.</p>
+</section>
+
+<section>
+  <h2><span class="n">07 — What I learned</span>Reflection</h2>
+  <div class="learn">
+    <div><b>Every fix moves the bottleneck.</b>The most useful thing Round 2 found wasn't a new problem. It was seeing how solving fares exposed competition and passenger reliability. Without a repeated survey, those would have looked like unrelated complaints.</div>
+    <div><b>Report the change, not the snapshot.</b>A standalone percentage invites "is that good or bad?". Organising the whole report around shifts since Round 1 answered that question before anyone asked it.</div>
+    <div><b>Be honest about cause.</b>Several features launched at once, so each shift was framed as a lead to test, with the fix and how to measure it named alongside. That kept the recommendations credible.</div>
+  </div>
+</section>
+
+<nav class="next" aria-label="More case studies">
+  <a href="intercity-drivers-round-1.html"><small>Part 1</small><strong>Listening to 2,000 intercity drivers: building the baseline</strong></a>
+  <a href="../index.html#work" style="text-align:right"><small>Back</small><strong>All work</strong></a>
+</nav>
+
+</article>
+<footer>© 2026 Vahideh Hanifzadeh</footer>
+</div>
+</body>
+</html>

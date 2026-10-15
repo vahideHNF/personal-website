@@ -106,6 +106,23 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
 .card h4{font:700 1.05rem/1.35 var(--serif);color:var(--ink);margin:0 0 .6em}
 .card p{font-size:.98rem;line-height:1.7;color:var(--text)}
 
+/* Featured case-study cards */
+.featured{margin-top:4.5em}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:24px}
+.feat{display:flex;flex-direction:column;border:1px solid var(--btn-line);border-radius:4px;overflow:hidden;color:var(--text);background:#fff;transition:border-color .2s, box-shadow .2s, transform .2s}
+.feat:hover{color:var(--text);border-color:var(--btn-hover);box-shadow:0 2px 0 var(--btn-hover);transform:translateY(-2px)}
+.feat-thumb{background:#F5F8FA;border-bottom:1px solid var(--btn-line);padding:2.2em 1.2em;text-align:center;display:grid;gap:.5em}
+.feat-num{font:700 2.4rem/1 var(--serif);color:var(--btn-ink);font-variant-numeric:tabular-nums}
+.feat-cap{font-size:14px;color:var(--muted)}
+.feat-body{padding:1.4em 1.4em 1.5em;display:flex;flex-direction:column;gap:.6em;flex:1}
+.feat-body .label{font-size:12px;font-weight:600;color:var(--soft);letter-spacing:.04em;text-transform:uppercase}
+.feat-body h4{font:700 1.1rem/1.35 var(--serif);color:var(--ink);margin:0}
+.feat-body p{font-size:.98rem;line-height:1.65}
+.feat-more{margin-top:auto;padding-top:.4em;font-weight:600;color:var(--link)}
+.feat:hover .feat-more{color:var(--hover)}
+.feat-note{font-size:13px;color:var(--muted);margin-top:1em}
+@media (prefers-reduced-motion: reduce){.feat,.feat:hover{transition:none;transform:none}}
+
 /* Password-protected case studies */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 .locked{margin-top:4em}
@@ -206,11 +223,45 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
   <h3 class="group-title reveal" id="snapp"><span class="label">Snapp! · 2024 – now</span>Ride-hailing, intercity &amp; carpool</h3>
   <p class="group-intro reveal">At Snapp, Iran's largest ride-hailing app, I research both sides of the marketplace: passengers and drivers in city rides, intercity trips, scheduled rides and carpool. I've run 30+ studies, using surveys, interviews, conjoint analysis, usability tests and data analysis.</p>
 
+  <div class="featured" id="case-studies">
+    <h3 class="more-title reveal">In-depth case studies</h3>
+    <div class="feat-grid">
+      <a class="feat reveal" href="case-studies/scheduled-rides.html">
+        <div class="feat-thumb" aria-hidden="true"><span class="feat-num">+15%</span><span class="feat-cap">finished scheduled rides</span></div>
+        <div class="feat-body">
+          <span class="label">Intercity · Scheduled rides</span>
+          <h4>Same drivers, different week: why drivers cancel scheduled rides they just accepted</h4>
+          <p>A two-segment survey found that what sets quick cancellers apart isn't who they are but having been let down by passengers before.</p>
+          <span class="feat-more">Read case study →</span>
+        </div>
+      </a>
+      <a class="feat reveal" href="case-studies/intercity-drivers-round-1.html">
+        <div class="feat-thumb" aria-hidden="true"><span class="feat-num">47%</span><span class="feat-cap">couldn't decide from the ride card</span></div>
+        <div class="feat-body">
+          <span class="label">Intercity · Periodic survey, part 1</span>
+          <h4>Listening to 2,000 intercity drivers: building the baseline</h4>
+          <p>The first round of a periodic survey that redesigned the intercity ride card and the bidding experience.</p>
+          <span class="feat-more">Read case study →</span>
+        </div>
+      </a>
+      <a class="feat reveal" href="case-studies/intercity-drivers-round-2.html">
+        <div class="feat-thumb" aria-hidden="true"><span class="feat-num">71→62%</span><span class="feat-cap">drivers citing fare as a barrier</span></div>
+        <div class="feat-body">
+          <span class="label">Intercity · Periodic survey, part 2</span>
+          <h4>Nine months later: what changed for intercity drivers, and what our fixes broke</h4>
+          <p>Repeating the survey showed fare complaints falling while competition and passenger cancellations rose.</p>
+          <span class="feat-more">Read case study →</span>
+        </div>
+      </a>
+    </div>
+    <p class="feat-note">Numbers in these case studies are illustrative. The real figures are under NDA.</p>
+  </div>
+
   <div class="locked" id="locked">
     <div class="locked-panel reveal">
       <svg class="lock-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 5a3 3 0 1 1 6 0v3H9V7zm3 7a2 2 0 0 1 1 3.73V19h-2v-1.27A2 2 0 0 1 12 14z"/></svg>
-      <h3>Snapp case studies are password-protected</h3>
-      <p>They include internal product results, so they're locked. If you're reviewing my work for a role, <a href="#contact">ask me for the password</a>.</p>
+      <h3>More Snapp studies, with real results</h3>
+      <p>These include confidential product results, so they are password-protected. If you are reviewing my work for a role, <a href="#contact">ask me for the password</a>.</p>
       <ul class="locked-list">
         <li>Giving drivers feedback before they bid</li>
         <li>Why drivers cancel after accepting</li>
@@ -394,7 +445,7 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
   <h2 class="section-title reveal">Get in touch</h2>
   <p class="reveal">Have a question your team can't answer yet? I'd be happy to talk about research, product or mentoring.</p>
   <div class="hero-buttons reveal">
-    <a class="btn" href="mailto:hanifzade.77@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.5l10 6.25L22 6.5V6H2zm20 2.86-9.47 5.92a1 1 0 0 1-1.06 0L2 8.86V18h20V8.86z"/></svg>hanifzade.77@gmail.com</a>
+    <a class="btn" href="mailto:vahidehhanif@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.5l10 6.25L22 6.5V6H2zm20 2.86-9.47 5.92a1 1 0 0 1-1.06 0L2 8.86V18h20V8.86z"/></svg>vahidehhanif@gmail.com</a>
     <a class="btn" href="https://www.linkedin.com/in/vahide-hanifzade" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
   </div>
 </section>

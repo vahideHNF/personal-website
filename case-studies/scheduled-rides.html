@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheduled Rides — Vahideh Hanifzadeh</title>
+<meta name="description" content="Case study: why intercity drivers cancel scheduled rides minutes after accepting them, and what Snapp changed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="case.css">
+</head>
+<body>
+<nav class="navbar" aria-label="Main"><div class="bar">
+  <a href="../index.html#work">← Vahideh Hanifzadeh</a>
+  <a href="../index.html#contact">Contact</a>
+</div></nav>
+
+<div class="main"><article class="wrap">
+
+<header class="case-hero">
+  <span class="kicker">Snapp! · Intercity · Scheduled rides · 2026</span>
+  <h1>Same drivers, different week: why drivers cancel scheduled rides they just accepted</h1>
+  <p class="sub">Scheduled intercity rides let passengers book a trip days ahead. Too many drivers were cancelling them within two minutes of accepting. I found out why, and the fix that shipped first cut passenger cancellations and raised finished rides.</p>
+  <dl class="meta">
+    <div><dt>My role</dt><dd>UX Researcher (lead)</dd></div>
+    <div><dt>Team</dt><dd>Intercity PMs, designers, data analyst</dd></div>
+    <div><dt>Timeline</dt><dd>3 weeks, summer 2026</dd></div>
+    <div><dt>Methods</dt><dd>Two-segment survey, behavioural data</dd></div>
+  </dl>
+  <div class="nda" role="note">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2zm0 4.5L19.5 19h-15L12 6.5zM11 10v5h2v-5h-2zm0 6v2h2v-2h-2z"/></svg>
+    <p><b>All numbers on this page are illustrative.</b> The real figures are confidential under NDA. The findings, the direction of every change and the decisions are real.</p>
+  </div>
+</header>
+
+<div class="tldr">
+  <h2>In short</h2>
+  <ul>
+    <li><span>Problem</span><div>About half of after-accept cancellations on scheduled rides happened within minutes, and we didn't know which of many known pain points was causing them.</div></li>
+    <li><span>Insight</span><div>Quick cancellers weren't a different kind of driver. What set them apart was having been burned by a passenger cancelling on them before.</div></li>
+    <li><span>Impact</span><div>Passenger contact details after acceptance shipped first: <b>−3.1%</b> passenger cancellations before the start, <b>+15%</b> finished rides.</div></li>
+  </ul>
+</div>
+
+<section>
+  <h2><span class="n">01 — The problem</span>A promise drivers stopped trusting</h2>
+  <p>Scheduled rides were meant to make intercity trips predictable for both sides: the passenger books Tehran → Isfahan for Friday, a driver accepts on Tuesday, and both can plan. In practice, a large share of drivers cancelled minutes after accepting.</p>
+  <p>Two earlier qualitative studies had already produced a long list of suspects. The ride card showed no passenger information after acceptance. Nobody had told drivers that the passenger's number appears only 15 minutes before departure. A fare <i>range</i> made it hard to plan income on long routes. Passengers cancelled at the last minute. Drivers couldn't book a return trip while on a ride, so many drove home empty. And nothing stopped a driver from dropping a scheduled ride when a better on-demand ride came along.</p>
+  <p>Every item on that list was plausible, and the team couldn't build all of them. <b>The real question was which problems actually drive cancellations, and how common each one is.</b></p>
+</section>
+
+<section>
+  <h2><span class="n">02 — My role</span>What I owned</h2>
+  <p>I led the study end to end: framing the research questions with the Intercity PMs, defining the two driver segments from ride data, designing the survey, analysing it, and turning the findings into recommendations ranked by impact and effort.</p>
+</section>
+
+<section>
+  <h2><span class="n">03 — Approach</span>Compare the drivers who cancel with the ones who finish</h2>
+  <p>Asking only cancellers "why did you cancel?" gives you a list of reasons but no way to tell which ones matter. So I compared two groups of intercity drivers from the same week:</p>
+  <ul class="plain">
+    <li><b>Finishers</b>: drivers who finished their scheduled rides.</li>
+    <li><b>Quick cancellers</b>: drivers who cancelled a scheduled ride within two minutes of accepting it.</li>
+  </ul>
+  <p>If a pain point is common in both groups, it's an annoyance. If it's much more common among quick cancellers, it's a lead. The survey went to a random sample from each segment and got about <b>2,300 valid responses</b>, which was enough to compare the groups with a margin of error under 4 points.</p>
+  <p><b>Limitation:</b> a survey shows association, not cause. That's why the first recommendation was something we could ship quickly and measure with an experiment.</p>
+</section>
+
+<section>
+  <h2><span class="n">04 — What we found</span>Three findings that reshaped the roadmap</h2>
+
+  <div class="insight">
+    <h3>1. Quick cancellers aren't a different type of driver</h3>
+    <p>I expected the two groups to differ in age, experience or how much they rely on intercity work. They didn't. Their stated reasons for disliking scheduled rides were almost the same too: uncompetitive fares and not being able to bid came up equally in both groups.</p>
+  </div>
+
+  <div class="insight">
+    <h3>2. What separates them is having been burned by a passenger</h3>
+    <p>The one big gap was exposure to passenger cancellations. Quick cancellers were <b>14 points</b> more likely to name a passenger cancelling on them as a bad experience, and they were far more likely to rate scheduled rides "very bad" (31% vs 20%). Drivers who'd been let down before were treating every new booking as likely to fall through, so they dropped it the moment something more certain appeared.</p>
+    <figure class="chart">
+      <figcaption>Bad experiences drivers reported with scheduled rides</figcaption>
+      <p class="note">Share of drivers in each group · illustrative numbers</p>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Quick cancellers</span><span><i style="background:var(--s2)"></i>Finishers</span></div>
+      <ul class="rows">
+        <li class="row" title="Passenger cancelled: quick cancellers 58%, finishers 44%"><span class="lbl">A passenger cancelled on me</span><span class="bars"><div><span class="b" style="width:83%;background:var(--s1)"></span><span class="v">58%</span></div><div><span class="b" style="width:63%;background:var(--s2)"></span><span class="v">44%</span></div></span></li>
+        <li class="row" title="Fare not competitive: quick cancellers 47%, finishers 45%"><span class="lbl">Fare wasn't competitive</span><span class="bars"><div><span class="b" style="width:67%;background:var(--s1)"></span><span class="v">47%</span></div><div><span class="b" style="width:64%;background:var(--s2)"></span><span class="v">45%</span></div></span></li>
+        <li class="row" title="Couldn't bid: quick cancellers 38%, finishers 36%"><span class="lbl">I couldn't bid on the ride</span><span class="bars"><div><span class="b" style="width:54%;background:var(--s1)"></span><span class="v">38%</span></div><div><span class="b" style="width:51%;background:var(--s2)"></span><span class="v">36%</span></div></span></li>
+      </ul>
+    </figure>
+  </div>
+
+  <div class="insight">
+    <h3>3. Drivers wanted certainty more than money</h3>
+    <p>The fare compared with on-demand rides was the <i>least</i> valued part of scheduled rides. What drivers valued was being able to plan, and quick cancellers cared even more about planning their daily income. A feature built to give drivers certainty was failing exactly there.</p>
+    <figure class="chart">
+      <figcaption>What drivers value about scheduled rides</figcaption>
+      <p class="note">Share of drivers in each group · illustrative numbers</p>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Quick cancellers</span><span><i style="background:var(--s2)"></i>Finishers</span></div>
+      <ul class="rows">
+        <li class="row" title="Confidence the ride will happen: quick cancellers 26%, finishers 37%"><span class="lbl">Confidence the ride will happen</span><span class="bars"><div><span class="b" style="width:37%;background:var(--s1)"></span><span class="v">26%</span></div><div><span class="b" style="width:53%;background:var(--s2)"></span><span class="v">37%</span></div></span></li>
+        <li class="row" title="Planning daily income: quick cancellers 29%, finishers 22%"><span class="lbl">Planning my daily income</span><span class="bars"><div><span class="b" style="width:41%;background:var(--s1)"></span><span class="v">29%</span></div><div><span class="b" style="width:31%;background:var(--s2)"></span><span class="v">22%</span></div></span></li>
+        <li class="row" title="Better fare than on-demand: quick cancellers 11%, finishers 9%"><span class="lbl">Better fare than on-demand</span><span class="bars"><div><span class="b" style="width:16%;background:var(--s1)"></span><span class="v">11%</span></div><div><span class="b" style="width:13%;background:var(--s2)"></span><span class="v">9%</span></div></span></li>
+      </ul>
+    </figure>
+  </div>
+
+  <p style="margin-top:2em"><b>Two things we could stop worrying about.</b> Passengers changing the start time was barely a problem (under 8% in either group), so schedule flexibility dropped down the roadmap. And the feature hardly helped with return trips: only about 3% of drivers' return rides came through it, while around four times as many drivers found return passengers outside Snapp. That return demand already exists, and we weren't capturing it.</p>
+</section>
+
+<section>
+  <h2><span class="n">05 — From insight to decisions</span>Fix certainty first</h2>
+  <p>I ranked each recommendation by impact and effort and tied it to the finding behind it, so the team could see why certainty and coordination came first:</p>
+  <table class="decisions">
+    <thead><tr><th>Recommendation</th><th>Why</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Share the passenger's phone number with the driver right after acceptance</td><td>Missing contact details were the main failure after acceptance</td><td><span class="status shipped">Shipped</span></td></tr>
+      <tr><td>Warn passengers about the new cancellation penalty for scheduled rides</td><td>Passenger cancellations separated quick cancellers from finishers</td><td><span class="status dev">In development</span></td></tr>
+      <tr><td>Raise scheduled-ride fares above on-demand intercity fares and drop the fare range</td><td>Scheduled rides lock a driver's time, and the range blocked income planning</td><td><span class="status dev">In development</span></td></tr>
+      <tr><td>Let drivers book a return ride while on the outbound trip</td><td>Return demand exists but goes outside Snapp</td><td><span class="status dev">In development</span></td></tr>
+      <tr><td>Test passenger deposits or a pre-departure confirmation</td><td>Strengthen passenger commitment</td><td><span class="status later">Next</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2><span class="n">06 — Impact</span>The first fix, measured</h2>
+  <p>Sharing the passenger's phone number needed a legal and privacy check first. It then rolled out to all drivers, and the team measured the effect.</p>
+  <div class="impact">
+    <div><div class="num">−3.1%</div><div class="cap">passenger cancellations before the trip starts</div></div>
+    <div><div class="num">+15%</div><div class="cap">finished rides, where the driver arrived on time</div></div>
+  </div>
+  <p class="impact-note">Illustrative numbers. Real results are confidential.</p>
+</section>
+
+<section>
+  <h2><span class="n">07 — What I learned</span>Reflection</h2>
+  <div class="learn">
+    <div><b>Compare groups, don't just list reasons.</b>Surveying only cancellers would have given us the same long list we already had. Comparing them with finishers turned the list into a ranking.</div>
+    <div><b>Look for the dull result too.</b>"These drivers aren't different" sounded like a non-finding, but it ruled out a whole set of driver-targeted fixes and pointed us at the passenger side.</div>
+    <div><b>Ship something measurable first.</b>Leading with a lower-effort change that could be measured quickly gave the team evidence early, while the bigger pricing changes were still being built.</div>
+  </div>
+</section>
+
+<nav class="next" aria-label="More case studies">
+  <a href="../index.html#work"><small>Back</small><strong>All work</strong></a>
+  <a href="intercity-drivers-round-1.html" style="text-align:right"><small>Next case study</small><strong>Listening to 2,000 intercity drivers: building the baseline</strong></a>
+</nav>
+
+</article>
+<footer>© 2026 Vahideh Hanifzadeh</footer>
+</div>
+</body>
+</html>

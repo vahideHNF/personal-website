@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intercity Drivers, Round 1 — Vahideh Hanifzadeh</title>
+<meta name="description" content="Case study: a quarterly survey that set the first baseline for Snapp's intercity drivers and turned into shipped features.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="case.css">
+</head>
+<body>
+<nav class="navbar" aria-label="Main"><div class="bar">
+  <a href="../index.html#work">← Vahideh Hanifzadeh</a>
+  <a href="../index.html#contact">Contact</a>
+</div></nav>
+
+<div class="main"><article class="wrap">
+
+<header class="case-hero">
+  <span class="kicker">Snapp! · Intercity · Periodic survey, part 1 of 2 · 2025</span>
+  <h1>Listening to 2,000 intercity drivers: building the baseline</h1>
+  <p class="sub">Intercity rides were growing, but there was no shared, reliable picture of the drivers behind them. I ran the first round of a periodic driver survey to set that baseline. It reshaped the intercity ride card and the bidding experience.</p>
+  <dl class="meta">
+    <div><dt>My role</dt><dd>UX Researcher (lead)</dd></div>
+    <div><dt>Team</dt><dd>Intercity PMs and designers</dd></div>
+    <div><dt>Timeline</dt><dd>Autumn 2025, repeated in 2026</dd></div>
+    <div><dt>Methods</dt><dd>Quantitative survey, persona breakdowns</dd></div>
+  </dl>
+  <div class="nda" role="note">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2zm0 4.5L19.5 19h-15L12 6.5zM11 10v5h2v-5h-2zm0 6v2h2v-2h-2z"/></svg>
+    <p><b>All numbers on this page are illustrative.</b> The real figures are confidential under NDA. The findings, the direction of every change and the decisions are real.</p>
+  </div>
+</header>
+
+<div class="tldr">
+  <h2>In short</h2>
+  <ul>
+    <li><span>Problem</span><div>There was no reliable, measured picture of why drivers took, skipped or cancelled intercity rides.</div></li>
+    <li><span>Insight</span><div>Half of drivers said the ride card didn't give them enough to decide, and most had tried bidding but only half were happy with it.</div></li>
+    <li><span>Impact</span><div>Passenger and luggage details on the ride card, destination alerts and a bid win-chance indicator shipped. After the ride card change: <b>+1.9%</b> acceptance and <b>−2.0%</b> driver cancellations.</div></li>
+  </ul>
+</div>
+
+<section>
+  <h2><span class="n">01 — The problem</span>Lots of opinions, no baseline</h2>
+  <p>Intercity rides work differently from city rides. A driver commits hours to one trip, often far from home, with a stranger and their luggage. Whether drivers say yes depends on money, distance, safety and whether they can find a ride back.</p>
+  <p>Earlier studies had each looked at one slice of the problem, and nothing showed whether things were getting better or worse over time. <b>The team needed a repeatable measure of the driver experience, not another one-off study.</b></p>
+</section>
+
+<section>
+  <h2><span class="n">02 — My role</span>What I owned</h2>
+  <p>This was the first round of a <b>periodic survey</b>, with the same core questions each round so every round could be compared with the last. I wrote the research questions with the intercity PMs, designed the questionnaire, defined the sample, ran the analysis and broke the results down by our driver personas.</p>
+</section>
+
+<section>
+  <h2><span class="n">03 — Approach</span>Four questions, asked the same way every round</h2>
+  <ul class="plain">
+    <li><b>Adoption:</b> how often, and through which entry point, do drivers take intercity rides?</li>
+    <li><b>Barriers:</b> what stops drivers from accepting, or makes them cancel?</li>
+    <li><b>Features:</b> is the ride information enough to decide? How do drivers feel about bidding?</li>
+    <li><b>Safety:</b> how safe do drivers feel on intercity trips?</li>
+  </ul>
+  <p>The survey went to a random sample of drivers on the intercity whitelist who had finished at least one intercity ride in the past 45 days, and got about <b>2,000 valid responses</b>. Breaking results down by persona (full-time drivers, older drivers and part-timers who drive to top up their income) mattered, because the groups often behaved in opposite ways.</p>
+</section>
+
+<section>
+  <h2><span class="n">04 — What we found</span>Four findings</h2>
+
+  <div class="insight">
+    <h3>1. Money and empty returns keep drivers away</h3>
+    <p>About one in six whitelisted drivers took no intercity ride in the previous month. Low fares were the top reason, but nearly as many feared driving home empty. That second reason doesn't go away with a higher fare.</p>
+    <figure class="chart">
+      <figcaption>Why some drivers didn't take intercity rides</figcaption>
+      <p class="note">Share of drivers with no intercity ride last month · multiple answers · illustrative numbers</p>
+      <ul class="rows">
+        <li class="row" title="Fare too low: 68%"><span class="lbl">Fare too low</span><span class="bars"><div><span class="b" style="width:91%;background:var(--s1)"></span><span class="v">68%</span></div></span></li>
+        <li class="row" title="Risk of returning empty: 52%"><span class="lbl">Risk of returning empty</span><span class="bars"><div><span class="b" style="width:69%;background:var(--s1)"></span><span class="v">52%</span></div></span></li>
+        <li class="row" title="Little demand on my routes: 21%"><span class="lbl">Little demand on my routes</span><span class="bars"><div><span class="b" style="width:28%;background:var(--s1)"></span><span class="v">21%</span></div></span></li>
+        <li class="row" title="Commission too high: 14%"><span class="lbl">Commission too high</span><span class="bars"><div><span class="b" style="width:19%;background:var(--s1)"></span><span class="v">14%</span></div></span></li>
+        <li class="row" title="Didn't see intercity requests: 11%"><span class="lbl">Didn't see intercity requests</span><span class="bars"><div><span class="b" style="width:15%;background:var(--s1)"></span><span class="v">11%</span></div></span></li>
+        <li class="row" title="Felt unsafe with passengers: 6%"><span class="lbl">Felt unsafe with passengers</span><span class="bars"><div><span class="b" style="width:8%;background:var(--s1)"></span><span class="v">6%</span></div></span></li>
+      </ul>
+    </figure>
+  </div>
+
+  <div class="insight">
+    <h3>2. Half of drivers couldn't decide from the ride card</h3>
+    <p>47% said the offer didn't tell them enough to accept with confidence. Their wish list was concrete: <b>how many passengers and how much luggage</b>, a more specific origin and destination (the village or district, not just the city), total trip time, a realistic fare including tolls, and signs the passenger was verified.</p>
+    <p>This explained a pattern from an earlier study: drivers accepted a ride, called the passenger, found four or five people with luggage instead of three, and cancelled.</p>
+  </div>
+
+  <div class="insight">
+    <h3>3. Bidding: almost everyone tried it, half were happy</h3>
+    <p>82% of drivers had tried bidding, but only 51% were satisfied. They bid blind, with no idea whether a price would win. The personas reacted in opposite ways to a rejected bid: <b>part-timers often gave up on the ride entirely, while older drivers lowered their price and tried again.</b> One fix wouldn't serve both groups.</p>
+  </div>
+
+  <div class="insight">
+    <h3>4. A safety baseline: 3.8 out of 5</h3>
+    <p>Drivers rated their safety 3.8 out of 5, the number later rounds would be compared against. The experiences that made them feel unsafe fell into three groups: fear of crime, payments that didn't arrive, and passengers whose identity they couldn't verify (often someone booking for another person). Full-time drivers felt the safest.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">05 — From insight to decisions</span>Five recommendations, mostly shipped</h2>
+  <table class="decisions">
+    <thead><tr><th>Recommendation</th><th>Why</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Show passenger and luggage count on the ride card, and let passengers set them when booking</td><td>The top information gap</td><td><span class="status shipped">Shipped</span></td></tr>
+      <tr><td>Alert drivers to new requests that match their destination</td><td>Drivers missed requests they wanted</td><td><span class="status shipped">Shipped</span></td></tr>
+      <tr><td>Show drivers their chance of winning before they bid</td><td>Blind bidding drove overbidding and drop-off</td><td><span class="status shipped">Shipped</span></td></tr>
+      <tr><td>Show a verified-passenger badge on intercity requests</td><td>Unverified passengers made drivers feel unsafe</td><td><span class="status shipped">Shipped after Round 2</span></td></tr>
+      <tr><td>Include tolls and return-trip scarcity in suggested fares</td><td>Fare and empty returns were the top barriers</td><td><span class="status later">Next</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2><span class="n">06 — Impact</span>The ride card change, measured</h2>
+  <p>Once passengers could state passenger count, luggage and time clearly, and drivers saw them before accepting, the effect showed up in both behaviour and ride outcomes:</p>
+  <div class="impact">
+    <div><div class="num">11×</div><div class="cap">luggage preference usage</div></div>
+    <div><div class="num">+1.9%</div><div class="cap">ride acceptance</div></div>
+    <div><div class="num">−2.0%</div><div class="cap">driver cancellations</div></div>
+  </div>
+  <p class="impact-note">Illustrative numbers. Real results are confidential.</p>
+  <p style="margin-top:1.2em">The survey also became a fixed part of the intercity roadmap. The next round measured whether these changes worked and what new problems they created.</p>
+</section>
+
+<section>
+  <h2><span class="n">07 — What I learned</span>Reflection</h2>
+  <div class="learn">
+    <div><b>A baseline is only worth something if you repeat it.</b>Keeping the core questions and the sample definition the same is what made Round 2 a real comparison rather than a new study.</div>
+    <div><b>Averages hide opposite behaviours.</b>Without persona breakdowns, the bidding finding would have read as "drivers are lukewarm". In fact one group quits and another keeps trying, and they need different fixes.</div>
+    <div><b>Ask what people need to decide, not what features they want.</b>Asking "what's missing to decide?" gave a concrete, buildable list instead of a feature wishlist.</div>
+  </div>
+</section>
+
+<nav class="next" aria-label="More case studies">
+  <a href="scheduled-rides.html"><small>Previous case study</small><strong>Why drivers cancel scheduled rides they just accepted</strong></a>
+  <a href="intercity-drivers-round-2.html" style="text-align:right"><small>Part 2</small><strong>Nine months later: what changed for intercity drivers</strong></a>
+</nav>
+
+</article>
+<footer>© 2026 Vahideh Hanifzadeh</footer>
+</div>
+</body>
+</html>
