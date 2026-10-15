@@ -8,7 +8,7 @@ Open `index.html` and edit:
 
 - **In-depth case studies** are separate pages in `case-studies/` (one HTML file each, shared styles in `case-studies/case.css`). Their numbers are illustrative because the real ones are under NDA. The cards that link to them are in `index.html` under `id="case-studies"`.
 - **More Snapp studies (real numbers)** are password-protected (see below).
-- **Latest Work**: each `<div class="post-row">` is one project. The left side has the text and tags, and the `.figure` card on the right shows the key numbers. Rows alternate sides automatically.
+- **Before Snapp**: each `<div class="post-row">` is one project. The left side has the text and tags, and the `.figure` card on the right shows the key numbers. Rows alternate sides automatically.
 - **Experience**: one `<li>` per role in the `.timeline` list.
 - **Skills & Education**: the four lists in `.facts`.
 - **Contact**: the email and LinkedIn buttons.

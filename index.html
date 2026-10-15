@@ -108,7 +108,7 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
 
 /* Featured case-study cards */
 .featured{margin-top:4.5em}
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:24px}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:24px}
 .feat{display:flex;flex-direction:column;border:1px solid var(--btn-line);border-radius:4px;overflow:hidden;color:var(--text);background:#fff;transition:border-color .2s, box-shadow .2s, transform .2s}
 .feat:hover{color:var(--text);border-color:var(--btn-hover);box-shadow:0 2px 0 var(--btn-hover);transform:translateY(-2px)}
 .feat-thumb{background:#F5F8FA;border-bottom:1px solid var(--btn-line);padding:2.2em 1.2em;text-align:center;display:grid;gap:.5em}
@@ -218,7 +218,7 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
 
 <section class="section" id="work">
   <h2 class="section-title reveal">Latest Work</h2>
-  <p class="section-subtitle reveal">Research for ride-hailing, e-commerce and enterprise software. Each study starts with what we found and ends with what changed.</p>
+  <p class="section-subtitle reveal">Research for ride-hailing and e-commerce products. Each study starts with what we found and ends with what changed.</p>
 
   <h3 class="group-title reveal" id="snapp"><span class="label">Snapp! · 2024 – now</span>Ride-hailing, intercity &amp; carpool</h3>
   <p class="group-intro reveal">At Snapp, Iran's largest ride-hailing app, I research both sides of the marketplace: passengers and drivers in city rides, intercity trips, scheduled rides and carpool. I've run 30+ studies, using surveys, interviews, conjoint analysis, usability tests and data analysis.</p>
@@ -226,6 +226,15 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
   <div class="featured" id="case-studies">
     <h3 class="more-title reveal">In-depth case studies</h3>
     <div class="feat-grid">
+      <a class="feat reveal" href="case-studies/bid-win-chance.html">
+        <div class="feat-thumb" aria-hidden="true"><span class="feat-num">−5.5%</span><span class="feat-cap">average driver bid price</span></div>
+        <div class="feat-body">
+          <span class="label">Intercity · Marketplace &amp; pricing</span>
+          <h4>Bidding blind: making intercity bidding fair for drivers and passengers</h4>
+          <p>Research on both sides of the bidding marketplace, including a conjoint study, led to a win-chance indicator and driver tiers.</p>
+          <span class="feat-more">Read case study →</span>
+        </div>
+      </a>
       <a class="feat reveal" href="case-studies/scheduled-rides.html">
         <div class="feat-thumb" aria-hidden="true"><span class="feat-num">+15%</span><span class="feat-cap">finished scheduled rides</span></div>
         <div class="feat-body">
@@ -300,52 +309,6 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
         <div class="stats">
           <div class="stat"><div class="num">+17%</div><div class="cap">campaigns, 16 days after launch vs. before</div></div>
           <div class="stat"><div class="num">74%</div><div class="cap">funnel success rate, up from 42%</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="post-row reveal">
-      <div class="content">
-        <span class="label">Digikala · Seller panel</span>
-        <h3>Restructuring the seller panel navigation</h3>
-        <p>Sellers had trouble finding their reports and insights pages. I rebuilt the navigation menu's information architecture using card sorting, then checked the new structure with tree testing before it shipped.</p>
-        <div class="tags"><span>Card sorting</span><span>Tree testing</span><span>Information architecture</span></div>
-      </div>
-      <div class="figure" aria-hidden="true">
-        <div class="chrome"><i></i><i></i><i></i></div>
-        <div class="stats">
-          <div class="stat"><div class="num">+20%</div><div class="cap">easier to reach report and insight pages</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="post-row reveal">
-      <div class="content">
-        <span class="label">System Group · Rahkaran &amp; Sepidar</span>
-        <h3>Redesigning accounting and logistics workflows</h3>
-        <p>I redesigned the core workflows of the Rahkaran and Sepidar enterprise software, focusing on the accounting and logistics modules: interface, grid and layout. I also reorganised Sepidar's navigation menu using card sorting, contributed to the Fanoos design system, and co-wrote a UX research guide for the design team.</p>
-        <div class="tags"><span>Usability testing</span><span>Redesign</span><span>Design system</span></div>
-      </div>
-      <div class="figure" aria-hidden="true">
-        <div class="chrome"><i></i><i></i><i></i></div>
-        <div class="stats">
-          <div class="stat"><div class="num">−50%</div><div class="cap">task completion time</div></div>
-          <div class="stat"><div class="num">↑</div><div class="cap">task success rate, measured in usability tests</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="post-row reveal">
-      <div class="content">
-        <span class="label">Diginext Academy · Rahnema College</span>
-        <h3>Mentoring new researchers and designers</h3>
-        <p>I've mentored more than 50 students. At Diginext Academy I helped over 30 of them write research plans and run and analyse user interviews and usability tests. At Rahnema College I guided 8 students through the design thinking process.</p>
-        <div class="tags"><span>Mentoring</span><span>Research plans</span><span>Design thinking</span></div>
-      </div>
-      <div class="figure" aria-hidden="true">
-        <div class="chrome"><i></i><i></i><i></i></div>
-        <div class="stats">
-          <div class="stat"><div class="num">50+</div><div class="cap">students mentored in UX research and design</div></div>
         </div>
       </div>
     </div>
