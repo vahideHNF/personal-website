@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scheduled Rides — Vahideh Hanifzadeh</title>
-<meta name="description" content="Case study: why intercity drivers cancel scheduled rides minutes after accepting them, and what Snapp changed.">
+<meta name="description" content="Case study: why long-distance drivers cancel scheduled rides minutes after accepting them and what changed as a result.">
 <link rel="icon" href="../favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png">
@@ -17,19 +17,19 @@
 </head>
 <body>
 <nav class="navbar" aria-label="Main"><div class="bar">
-  <a href="../index.html#work">← Vahideh Hanifzadeh</a>
+  <a href="../index.html#work">← <img class="logo" src="../assets/favicon-32.png" alt="" width="22" height="22">Vahideh Hanifzadeh</a>
   <a href="../index.html#contact">Contact</a>
 </div></nav>
 
 <div class="main"><article class="wrap">
 
 <header class="case-hero">
-  <span class="kicker">Snapp! · Intercity · Scheduled rides · 2026</span>
+  <span class="kicker">Ride-hailing · Scheduled rides · 2026</span>
   <h1>Same drivers, different week: why drivers cancel scheduled rides they just accepted</h1>
-  <p class="sub">Scheduled intercity rides let passengers book a trip days ahead. Too many drivers were cancelling them within two minutes of accepting. I found out why, and the fix that shipped first cut passenger cancellations and raised finished rides.</p>
+  <p class="sub">Scheduled long-distance rides let passengers book a trip days ahead. Too many drivers were cancelling them within two minutes of accepting. I found out why, and the fix that shipped first cut passenger cancellations and raised finished rides.</p>
   <dl class="meta">
     <div><dt>My role</dt><dd>UX Researcher (lead)</dd></div>
-    <div><dt>Team</dt><dd>Intercity PMs, designers, data analyst</dd></div>
+    <div><dt>Team</dt><dd>Product managers, designers, data analyst</dd></div>
     <div><dt>Timeline</dt><dd>3 weeks, summer 2026</dd></div>
     <div><dt>Methods</dt><dd>Two-segment survey, behavioural data</dd></div>
   </dl>
@@ -43,26 +43,26 @@
   <h2>In short</h2>
   <ul>
     <li><span>Problem</span><div>About half of after-accept cancellations on scheduled rides happened within minutes, and we didn't know which of many known pain points was causing them.</div></li>
-    <li><span>Insight</span><div>Quick cancellers weren't a different kind of driver. What set them apart was having been burned by a passenger cancelling on them before.</div></li>
+    <li><span>Insight</span><div>Quick cancellers weren't a different kind of driver. What set them apart was <mark>having been burned by a passenger</mark> cancelling on them before.</div></li>
     <li><span>Impact</span><div>Passenger contact details after acceptance shipped first: <b>−3.1%</b> passenger cancellations before the start, <b>+15%</b> finished rides.</div></li>
   </ul>
 </div>
 
 <section>
   <h2><span class="n">01 — The problem</span>A promise drivers stopped trusting</h2>
-  <p>Scheduled rides were meant to make intercity trips predictable for both sides: the passenger books Tehran → Isfahan for Friday, a driver accepts on Tuesday, and both can plan. In practice, a large share of drivers cancelled minutes after accepting.</p>
+  <p>Scheduled rides were meant to make long-distance trips predictable for both sides: the passenger books a trip to another city for Friday, a driver accepts on Tuesday, and both can plan. In practice, a large share of drivers cancelled minutes after accepting.</p>
   <p>Two earlier qualitative studies had already produced a long list of suspects. The ride card showed no passenger information after acceptance. Nobody had told drivers that the passenger's number appears only 15 minutes before departure. A fare <i>range</i> made it hard to plan income on long routes. Passengers cancelled at the last minute. Drivers couldn't book a return trip while on a ride, so many drove home empty. And nothing stopped a driver from dropping a scheduled ride when a better on-demand ride came along.</p>
   <p>Every item on that list was plausible, and the team couldn't build all of them. <b>The real question was which problems actually drive cancellations, and how common each one is.</b></p>
 </section>
 
 <section>
   <h2><span class="n">02 — My role</span>What I owned</h2>
-  <p>I led the study end to end: framing the research questions with the Intercity PMs, defining the two driver segments from ride data, designing the survey, analysing it, and turning the findings into recommendations ranked by impact and effort.</p>
+  <p>I led the study end to end: framing the research questions with the product managers, defining the two driver segments from ride data, designing the survey, analysing it, and turning the findings into recommendations ranked by impact and effort.</p>
 </section>
 
 <section>
   <h2><span class="n">03 — Approach</span>Compare the drivers who cancel with the ones who finish</h2>
-  <p>Asking only cancellers "why did you cancel?" gives you a list of reasons but no way to tell which ones matter. So I compared two groups of intercity drivers from the same week:</p>
+  <p>Asking only cancellers "why did you cancel?" gives you a list of reasons but no way to tell which ones matter. So I compared two groups of long-distance drivers from the same week:</p>
   <ul class="plain">
     <li><b>Finishers</b>: drivers who finished their scheduled rides.</li>
     <li><b>Quick cancellers</b>: drivers who cancelled a scheduled ride within two minutes of accepting it.</li>
@@ -76,7 +76,7 @@
 
   <div class="insight">
     <h3>1. Quick cancellers aren't a different type of driver</h3>
-    <p>I expected the two groups to differ in age, experience or how much they rely on intercity work. They didn't. Their stated reasons for disliking scheduled rides were almost the same too: uncompetitive fares and not being able to bid came up equally in both groups.</p>
+    <p>I expected the two groups to differ in age, experience or how much they rely on long-distance work. They didn't. Their stated reasons for disliking scheduled rides were almost the same too: uncompetitive fares and not being able to bid came up equally in both groups.</p>
   </div>
 
   <div class="insight">
@@ -109,7 +109,7 @@
     </figure>
   </div>
 
-  <p style="margin-top:2em"><b>Two things we could stop worrying about.</b> Passengers changing the start time was barely a problem (under 8% in either group), so schedule flexibility dropped down the roadmap. And the feature hardly helped with return trips: only about 3% of drivers' return rides came through it, while around four times as many drivers found return passengers outside Snapp. That return demand already exists, and we weren't capturing it.</p>
+  <p style="margin-top:2em"><b>Two things we could stop worrying about.</b> Passengers changing the start time was barely a problem (under 8% in either group), so schedule flexibility dropped down the roadmap. And the feature hardly helped with return trips: only about 3% of drivers' return rides came through it, while around four times as many drivers found return passengers outside the app. That return demand already exists, and we weren't capturing it.</p>
 </section>
 
 <section>
@@ -120,8 +120,8 @@
     <tbody>
       <tr><td>Share the passenger's phone number with the driver right after acceptance</td><td>Missing contact details were the main failure after acceptance</td><td><span class="status shipped">Shipped</span></td></tr>
       <tr><td>Warn passengers about the new cancellation penalty for scheduled rides</td><td>Passenger cancellations separated quick cancellers from finishers</td><td><span class="status dev">In development</span></td></tr>
-      <tr><td>Raise scheduled-ride fares above on-demand intercity fares and drop the fare range</td><td>Scheduled rides lock a driver's time, and the range blocked income planning</td><td><span class="status dev">In development</span></td></tr>
-      <tr><td>Let drivers book a return ride while on the outbound trip</td><td>Return demand exists but goes outside Snapp</td><td><span class="status dev">In development</span></td></tr>
+      <tr><td>Raise scheduled-ride fares above on-demand long-distance fares and drop the fare range</td><td>Scheduled rides lock a driver's time, and the range blocked income planning</td><td><span class="status dev">In development</span></td></tr>
+      <tr><td>Let drivers book a return ride while on the outbound trip</td><td>Return demand exists but goes outside the app</td><td><span class="status dev">In development</span></td></tr>
       <tr><td>Test passenger deposits or a pre-departure confirmation</td><td>Strengthen passenger commitment</td><td><span class="status later">Next</span></td></tr>
     </tbody>
   </table>
@@ -147,8 +147,8 @@
 </section>
 
 <nav class="next" aria-label="More case studies">
-  <a href="bid-win-chance.html"><small>Previous case study</small><strong>Bidding blind: making intercity bidding fair</strong></a>
-  <a href="intercity-drivers-round-1.html" style="text-align:right"><small>Next case study</small><strong>Listening to 2,000 intercity drivers: building the baseline</strong></a>
+  <a href="bid-win-chance.html"><small>Previous case study</small><strong>Bidding blind: making long-distance bidding fair</strong></a>
+  <a href="driver-survey-round-1.html" style="text-align:right"><small>Next case study</small><strong>Listening to 2,000 long-distance drivers: building the baseline</strong></a>
 </nav>
 
 </article>

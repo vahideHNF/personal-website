@@ -114,3 +114,42 @@ section ul.plain + p{margin-top:1em}
 .next small{display:block;font:600 12px var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--soft)}
 .next strong{font-family:var(--serif);color:inherit}
 footer{border-top:1px solid #EFEFEF;padding:1em clamp(16px,5vw,32px);font-size:12px;font-weight:600;color:var(--soft);text-align:center}
+
+/* ===== Colour & motion layer: one yellow accent for highlights, bars and
+   hover states only (never body text). Mirrors index.html. ===== */
+:root{ --accent:#FFC629; --accent-soft:#FFE58A; --accent-tint:#FFF8DC; --accent-deep:#C99400; --ink2:#1F2A33 }
+::selection{background:var(--accent-soft);color:var(--ink)}
+.wrap a{color:var(--ink2);background:linear-gradient(var(--accent),var(--accent)) 0 100%/100% 2px no-repeat;transition:background-size .25s ease}
+.wrap a:hover{color:var(--ink);background-size:100% 100%}
+.navbar a .logo{width:22px;height:22px;border-radius:5px;vertical-align:-5px;margin-right:8px}
+mark{color:inherit;padding:0 .12em;background:linear-gradient(transparent 58%, var(--accent-soft) 58%) 0 0/0% 100% no-repeat;animation:draw .9s cubic-bezier(.2,.7,.2,1) .6s forwards}
+@keyframes draw{to{background-size:100% 100%}}
+
+/* Hero entrance */
+.case-hero > *{opacity:0;transform:translateY(12px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.case-hero > :nth-child(2){animation-delay:.1s}.case-hero > :nth-child(3){animation-delay:.2s}
+.case-hero > :nth-child(4){animation-delay:.3s}.case-hero > :nth-child(5){animation-delay:.4s}
+@keyframes rise{to{opacity:1;transform:none}}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--ink2);background:var(--accent-tint);border:1px solid var(--accent-soft);padding:5px 12px;border-radius:99px}
+.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+
+/* Accents */
+section > h2::after{background:var(--accent)}
+section > h2 .n{color:var(--accent-deep)}
+.tldr{border-left:4px solid var(--accent);border-radius:6px}
+.insight{transition:border-color .3s}
+.insight:hover{border-left-color:var(--accent)}
+.impact .num{display:inline-block;padding:0 .12em;background:linear-gradient(transparent 62%, var(--accent-soft) 62%)}
+.learn div{border-radius:8px;transition:border-color .25s, transform .25s, box-shadow .25s}
+.learn div:hover{border-color:var(--accent-soft);transform:translateY(-2px);box-shadow:0 10px 24px -18px rgba(31,42,51,.4)}
+.decisions tr{transition:background .2s}
+.decisions tbody tr:hover{background:var(--accent-tint)}
+.next a{background:none;transition:transform .25s}
+.next a:hover{transform:translateX(3px)}
+.next a:first-child:hover{transform:translateX(-3px)}
+
+@media (prefers-reduced-motion: reduce){
+  .case-hero > *{opacity:1;transform:none;animation:none}
+  mark{animation:none;background-size:100% 100%}
+  .learn div,.next a{transition:none}
+}

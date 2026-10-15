@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Intercity Drivers, Round 2 — Vahideh Hanifzadeh</title>
-<meta name="description" content="Case study: repeating the intercity driver survey nine months later showed which fixes worked and which new problems they created.">
+<title>Driver Survey, Round 2 — Vahideh Hanifzadeh</title>
+<meta name="description" content="Case study: repeating the long-distance driver survey nine months later showed which fixes worked and which new problems they created.">
 <link rel="icon" href="../favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png">
@@ -17,19 +17,19 @@
 </head>
 <body>
 <nav class="navbar" aria-label="Main"><div class="bar">
-  <a href="../index.html#work">← Vahideh Hanifzadeh</a>
+  <a href="../index.html#work">← <img class="logo" src="../assets/favicon-32.png" alt="" width="22" height="22">Vahideh Hanifzadeh</a>
   <a href="../index.html#contact">Contact</a>
 </div></nav>
 
 <div class="main"><article class="wrap">
 
 <header class="case-hero">
-  <span class="kicker">Snapp! · Intercity · Periodic survey, part 2 of 2 · 2026</span>
-  <h1>Nine months later: what changed for intercity drivers, and what our fixes broke</h1>
-  <p class="sub">After the first survey, the intercity team shipped scheduled rides, destination alerts and a bid win-chance indicator. I ran the same survey again to see what had actually changed. Some problems shrank, new ones took their place, and the results set the next round of work.</p>
+  <span class="kicker">Ride-hailing · Periodic survey, part 2 of 2 · 2026</span>
+  <h1>Nine months later: what changed for long-distance drivers, and what our fixes broke</h1>
+  <p class="sub">After the first survey, the team shipped scheduled rides, destination alerts and a bid win-chance indicator. I ran the same survey again to see what had actually changed. Some problems shrank, new ones took their place, and the results set the next round of work.</p>
   <dl class="meta">
     <div><dt>My role</dt><dd>UX Researcher (lead)</dd></div>
-    <div><dt>Team</dt><dd>Intercity PMs and designers</dd></div>
+    <div><dt>Team</dt><dd>Product managers and designers</dd></div>
     <div><dt>Timeline</dt><dd>Summer 2026</dd></div>
     <div><dt>Methods</dt><dd>Repeated survey, round-on-round comparison</dd></div>
   </dl>
@@ -42,8 +42,8 @@
 <div class="tldr">
   <h2>In short</h2>
   <ul>
-    <li><span>Question</span><div>Did the features shipped after Round 1 improve the intercity driver experience, and what new problems appeared?</div></li>
-    <li><span>Insight</span><div>Fare complaints fell, but competition between drivers and passenger cancellations rose. The fixes had moved the bottleneck, not removed it.</div></li>
+    <li><span>Question</span><div>Did the features shipped after Round 1 improve the long-distance driver experience, and what new problems appeared?</div></li>
+    <li><span>Insight</span><div>Fare complaints fell, but competition between drivers and passenger cancellations rose. The fixes had <mark>moved the bottleneck, not removed it</mark>.</div></li>
     <li><span>Impact</span><div>A verified-passenger badge shipped (<b>+1.6%</b> ride acceptance), and in-ride return booking and multiple bidding followed.</div></li>
   </ul>
 </div>
@@ -60,7 +60,7 @@
 
 <section>
   <h2><span class="n">03 — Approach</span>Same questions, same drivers, new answers</h2>
-  <p>A random sample of whitelisted drivers who had finished an intercity ride in the past 45 days, the same definition as Round 1, gave about <b>2,000 valid responses</b> (95% confidence, around ±2 points). For every question I compared Round 2 with Round 1 and reported only the shifts that were bigger than the margin of error.</p>
+  <p>A random sample of approved drivers who had finished a long-distance ride in the past 45 days, the same definition as Round 1, gave about <b>2,000 valid responses</b> (95% confidence, around ±2 points). For every question I compared Round 2 with Round 1 and reported only the shifts that were bigger than the margin of error.</p>
   <p><b>Limitation:</b> a repeated survey shows what changed, not what caused it. Several features launched in the same period, so I treated each shift as a strong lead to test, not as proof.</p>
 </section>
 
@@ -68,19 +68,19 @@
   <h2><span class="n">04 — What we found</span>The bottleneck moved</h2>
 
   <div class="insight">
-    <h3>1. Intercity became a habit, and money stopped being the main complaint</h3>
-    <p>More drivers said most of their rides were now intercity (24% → 31%). Fare was still the biggest barrier, but it was cited less often, and cancellations because the fare didn't match the distance dropped sharply.</p>
+    <h3>1. Long-distance rides became a habit, and money stopped being the main complaint</h3>
+    <p>More drivers said most of their rides were now long-distance (24% → 31%). Fare was still the biggest barrier, but it was cited less often, and cancellations because the fare didn't match the distance dropped sharply.</p>
   </div>
 
   <div class="insight">
     <h3>2. But new problems took their place</h3>
-    <p>As fare complaints fell, two other problems grew. <b>Passengers cancelling or changing plans</b> became a more common reason for drivers to cancel, which we linked to the new scheduled rides (a passenger who books days ahead has more time to change their mind). And <b>competition between drivers</b> became the main complaint about bidding and the intercity list. More drivers felt someone else always accepted the ride first.</p>
+    <p>As fare complaints fell, two other problems grew. <b>Passengers cancelling or changing plans</b> became a more common reason for drivers to cancel, which we linked to the new scheduled rides (a passenger who books days ahead has more time to change their mind). And <b>competition between drivers</b> became the main complaint about bidding and the long-distance ride list. More drivers felt someone else always accepted the ride first.</p>
     <figure class="chart">
       <figcaption>How drivers' answers shifted between rounds</figcaption>
       <p class="note">Share of drivers · Round 1 vs Round 2 · illustrative numbers</p>
       <div class="legend"><span><i style="background:var(--before)"></i>Round 1</span><span><i style="background:var(--after)"></i>Round 2</span></div>
       <ul class="rows">
-        <li class="row" title="Fare is a barrier: Round 1 71%, Round 2 62%"><span class="lbl">Fare is a barrier to intercity</span><span class="bars"><div><span class="b" style="width:95%;background:var(--before)"></span><span class="v">71%</span></div><div><span class="b" style="width:83%;background:var(--after)"></span><span class="v">62%</span></div></span></li>
+        <li class="row" title="Fare is a barrier: Round 1 71%, Round 2 62%"><span class="lbl">Fare is a barrier to long-distance rides</span><span class="bars"><div><span class="b" style="width:95%;background:var(--before)"></span><span class="v">71%</span></div><div><span class="b" style="width:83%;background:var(--after)"></span><span class="v">62%</span></div></span></li>
         <li class="row" title="Cancelled because fare didn't match distance: Round 1 57%, Round 2 44%"><span class="lbl">Cancelled: fare didn't match distance</span><span class="bars"><div><span class="b" style="width:76%;background:var(--before)"></span><span class="v">57%</span></div><div><span class="b" style="width:59%;background:var(--after)"></span><span class="v">44%</span></div></span></li>
         <li class="row" title="Cancelled because the passenger cancelled or changed plans: Round 1 19%, Round 2 27%"><span class="lbl">Cancelled: passenger cancelled or changed plans</span><span class="bars"><div><span class="b" style="width:25%;background:var(--before)"></span><span class="v">19%</span></div><div><span class="b" style="width:36%;background:var(--after)"></span><span class="v">27%</span></div></span></li>
         <li class="row" title="Bidding complaint is other drivers' competition: Round 1 27%, Round 2 40%"><span class="lbl">Bidding complaint: competition from other drivers</span><span class="bars"><div><span class="b" style="width:36%;background:var(--before)"></span><span class="v">27%</span></div><div><span class="b" style="width:53%;background:var(--after)"></span><span class="v">40%</span></div></span></li>
@@ -121,7 +121,7 @@
       <tr><td>Let drivers book a return ride while still on the outbound trip</td><td>Empty returns: the only barrier that didn't improve</td><td><span class="status dev">In development</span></td></tr>
       <tr><td>Warn passengers about a cancellation penalty for scheduled rides</td><td>Passenger-driven cancellations rose after scheduled rides launched</td><td><span class="status dev">In development</span></td></tr>
       <tr><td>Multiple bidding, then measure its effect on competition in Round 3</td><td>Competition became the main bidding complaint</td><td><span class="status shipped">Shipped</span></td></tr>
-      <tr><td>Test delaying when intercity offers appear in Golchin, the driver app's main ride feed</td><td>"Others accept faster" kept drivers off the intercity list</td><td><span class="status later">Next</span></td></tr>
+      <tr><td>Test delaying when long-distance offers appear in the driver app's main ride feed</td><td>"Others accept faster" kept drivers off the long-distance ride list</td><td><span class="status later">Next</span></td></tr>
       <tr><td>Fix the fare message that wrongly says tolls are included</td><td>Drivers flagged it in open answers</td><td><span class="status later">Next</span></td></tr>
     </tbody>
   </table>
@@ -148,7 +148,7 @@
 </section>
 
 <nav class="next" aria-label="More case studies">
-  <a href="intercity-drivers-round-1.html"><small>Part 1</small><strong>Listening to 2,000 intercity drivers: building the baseline</strong></a>
+  <a href="driver-survey-round-1.html"><small>Part 1</small><strong>Listening to 2,000 long-distance drivers: building the baseline</strong></a>
   <a href="lightning-deal.html" style="text-align:right"><small>Next case study</small><strong>Getting more Digikala sellers to run Lightning Deal campaigns</strong></a>
 </nav>
 

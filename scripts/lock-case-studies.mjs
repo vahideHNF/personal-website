@@ -1,6 +1,6 @@
-// Encrypts the private Snapp case studies into index.html.
+// Encrypts the private, password-protected case studies into index.html.
 //
-//   node scripts/lock-case-studies.mjs "<password>" [private/snapp-case-studies.html]
+//   node scripts/lock-case-studies.mjs "<password>" [private/locked-case-studies.html]
 //
 // The readable HTML lives in private/ (git-ignored) and is never committed.
 // Output: AES-256-GCM ciphertext, key derived with PBKDF2-SHA-256, written into
@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { webcrypto as crypto } from 'node:crypto';
 
-const [password, src = 'private/snapp-case-studies.html'] = process.argv.slice(2);
+const [password, src = 'private/locked-case-studies.html'] = process.argv.slice(2);
 if (!password || password.length < 10) {
   console.error('Usage: node scripts/lock-case-studies.mjs "<password, 10+ characters>" [source.html]');
   process.exit(1);
