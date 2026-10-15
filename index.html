@@ -108,7 +108,9 @@ a:focus-visible{outline:2px solid var(--btn-ink);outline-offset:3px;border-radiu
 
 /* Featured case-study cards */
 .featured{margin-top:4.5em}
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:24px}
+.feat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media (max-width:960px){.feat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.feat-grid{grid-template-columns:1fr}}
 .feat{display:flex;flex-direction:column;border:1px solid var(--btn-line);border-radius:4px;overflow:hidden;color:var(--text);background:#fff;transition:border-color .2s, box-shadow .2s, transform .2s}
 .feat:hover{color:var(--text);border-color:var(--btn-hover);box-shadow:0 2px 0 var(--btn-hover);transform:translateY(-2px)}
 .feat-thumb{background:#F5F8FA;border-bottom:1px solid var(--btn-line);padding:2.2em 1.2em;text-align:center;display:grid;gap:.5em}
