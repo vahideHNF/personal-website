@@ -6,9 +6,8 @@ Vahideh Hanifzadeh's UX research portfolio. Plain HTML and CSS in a single file 
 
 Open `index.html` and edit:
 
-- **In-depth case studies** are separate pages in `case-studies/` (one HTML file each, shared styles in `case-studies/case.css`). Their numbers are illustrative because the real ones are under NDA. The cards that link to them are in `index.html` under `id="case-studies"`.
-- **More Snapp studies (real numbers)** are password-protected (see below).
-- **Latest Work**: each `<div class="post-row">` is one project. The left side has the text and tags, and the `.figure` card on the right shows the key numbers. Rows alternate sides automatically.
+- **In-depth case studies** are separate pages in `case-studies/` (one HTML file each, shared styles in `case-studies/case.css`). Snapp numbers are illustrative because the real ones are under NDA; Digikala numbers are real. Every project in Work is a card in `index.html` under `id="case-studies"` that links to its page.
+- **Password-protected Snapp studies** are currently switched off: the section and its script are wrapped in comments in `index.html` (search for `PASSWORD`). Remove the comment wrappers to bring them back.
 - **Experience**: one `<li>` per role in the `.timeline` list.
 - **Skills & Education**: the four lists in `.facts`.
 - **Contact**: the email and LinkedIn buttons.
