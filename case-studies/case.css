@@ -229,3 +229,8 @@ section > h2 .n{color:var(--accent-deep)}
 .split .big{font:700 2rem/1 var(--serif);color:var(--ink)}
 .split p{font-size:14.5px;margin-top:.4em}
 @media (max-width:560px){.vs{flex-direction:column}.vs .grp{flex:none;width:100%;max-width:none}}
+/* Wider reading column on desktop (smaller side margins) */
+@media (min-width:900px){
+  .wrap{max-width:62rem;padding-inline:40px}
+  .step > p{max-width:48rem}
+}
