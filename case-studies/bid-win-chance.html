@@ -14,68 +14,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
 <link rel="stylesheet" href="case.css">
-<style>
-/* Page-specific visuals for the bidding story: a vertical timeline with a
-   picture at every step, so the story reads mostly through visuals. */
-.story{list-style:none;margin:3em 0 0;padding:0;position:relative}
-.story::before{content:"";position:absolute;left:15px;top:6px;bottom:6px;width:2px;background:var(--btn-line)}
-.step{position:relative;padding:0 0 3.2em 52px}
-.step:last-child{padding-bottom:0}
-.dot{position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--ink);font:700 14px/32px var(--sans);text-align:center;box-shadow:0 0 0 5px #fff}
-.step .when{font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-deep)}
-.step h2{font-size:clamp(1.2rem,2.8vw,1.45rem);margin:.25em 0 .5em}
-.step > p{font-size:16px;max-width:36rem}
-.vis{margin-top:1.3em;padding:1.4em;border:1px solid var(--btn-line);border-radius:10px;background:#FCFCFA}
-.vis .cap{font-size:13px;color:var(--muted);margin-top:.9em}
-/* rings */
-.rings{display:flex;flex-wrap:wrap;gap:22px 34px;align-items:center}
-.ring{display:flex;align-items:center;gap:14px}
-.ring i{--p:50;width:76px;height:76px;border-radius:50%;flex:none;background:conic-gradient(var(--c,#2a78d6) calc(var(--p)*1%), #E8EDF1 0);display:grid;place-items:center}
-.ring i::after{content:"";width:56px;height:56px;border-radius:50%;background:#FCFCFA}
-.ring b{display:block;font:700 1.6rem/1 var(--serif);color:var(--ink)}
-.ring span{font-size:14px;color:var(--text);line-height:1.4}
-/* people */
-.people{display:flex;gap:6px;align-items:flex-end}
-.people svg{width:34px;height:44px}
-.people .on{fill:#eb6834}.people .off{fill:#D5DDE3}
-.people-row{display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center}
-.people-row p{font-size:15px;max-width:22rem;margin:0}
-/* loop */
-.loop{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.loop .box{flex:1 1 9rem;background:#fff;border:1px solid var(--btn-line);border-radius:8px;padding:.8em 1em;font-size:14.5px;line-height:1.45;text-align:center}
-.loop .box b{display:block;font-size:13px;color:var(--soft);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.2em}
-.loop .arrow{color:var(--accent-deep);font:700 20px var(--sans)}
-.loop-back{font-size:13px;color:var(--muted);text-align:center;margin-top:.8em}
-/* phone mock */
-.mock{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
-.phone{width:240px;border:2px solid #1F2A33;border-radius:22px;padding:16px 14px;background:#fff;box-shadow:0 14px 30px -20px rgba(31,42,51,.5)}
-.phone .row1{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
-.phone .price{font:700 1.7rem var(--serif);color:var(--ink);margin:.35em 0 .2em}
-.phone .meter{height:10px;border-radius:99px;background:#E8EDF1;overflow:hidden}
-.phone .meter i{display:block;height:100%;width:72%;background:linear-gradient(90deg,#FFC629,#1baf7a);border-radius:99px;animation:fill 1.6s cubic-bezier(.2,.7,.2,1) .4s both}
-@keyframes fill{from{width:0}}
-.phone .chance{display:flex;justify-content:space-between;font-size:13px;margin-top:.45em}
-.phone .chance b{color:#1E6B34}
-.phone .btnx{margin-top:1em;background:#1F2A33;color:#fff;text-align:center;border-radius:99px;padding:.55em;font-size:14px;font-weight:600}
-.tiers{display:grid;gap:8px;font-size:14.5px}
-.tier{display:flex;align-items:center;gap:10px}
-.tier span{display:inline-block;min-width:6.5rem;text-align:center;padding:.3em .8em;border-radius:99px;font-weight:600;font-size:13px}
-.t1{background:#1F2A33;color:#fff}.t2{background:#FFE58A;color:#3F3410}.t3{background:#E8EDF1;color:#2E4453}
-/* diverging bars */
-.div-rows{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.div-row{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr) 4.2rem;gap:12px;align-items:center;font-size:14px}
-.div-track{position:relative;height:14px}
-.div-track::before{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:1px;background:#B9C6CF}
-.div-track i{position:absolute;top:0;height:100%;border-radius:4px}
-.div-track i.neg{right:50%}.div-track i.pos{left:50%}
-.div-row .v{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
-.legend2{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;margin-bottom:1em}
-.legend2 i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.next-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.next-list li{display:flex;gap:10px;align-items:center;font-size:15px}
-@media (max-width:560px){.loop{flex-direction:column;align-items:stretch}.loop .arrow{text-align:center;transform:rotate(90deg)}.div-row{grid-template-columns:1fr 3.6rem}.div-row .lbl{grid-column:1 / -1}.story::before{left:13px}.dot{width:28px;height:28px;line-height:28px}.step{padding-left:44px}}
-@media (prefers-reduced-motion: reduce){.phone .meter i{animation:none}}
-</style>
 </head>
 <body>
 <nav class="navbar" aria-label="Main"><div class="bar">
