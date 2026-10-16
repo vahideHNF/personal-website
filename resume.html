@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vahideh Hanifzadeh — Resume</title>
+<meta name="description" content="Resume of Vahideh Hanifzadeh, UX Researcher: mixed-methods research, survey design, usability testing and data analysis.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Resume page. ATS-friendly by design: one column, real text (no images or
+   icons carrying information), standard section headings, no tables, and
+   dates written out. "Download PDF" uses the browser's print dialog; the print
+   styles below turn the page into a clean A4 resume. */
+:root{
+  --page:#E9EDF0; --main:#FFFFFF; --edge:#CEDFEA; --ink:#0A0A0A; --text:#2B2B2B; --muted:#5F6B73;
+  --line:#E3E8EC; --accent:#FFC629; --accent-soft:#FFE58A; --accent-tint:#FFF8DC; --ink2:#1F2A33;
+  --serif:"Merriweather", Georgia, serif; --sans:"Open Sans", "Helvetica Neue", Arial, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--text);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--ink2);text-decoration:none;background:linear-gradient(var(--accent),var(--accent)) 0 100%/100% 2px no-repeat;transition:background-size .25s}
+a:hover{background-size:100% 100%}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink2);outline-offset:3px}
+
+.toolbar{position:sticky;top:0;z-index:5;background:#F8F8F8;border-bottom:1px solid #E7E7E7}
+.toolbar .bar{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px}
+.toolbar a.home{display:inline-flex;align-items:center;gap:8px;background:none;color:var(--muted);font-size:15px}
+.toolbar a.home img{width:24px;height:24px;border-radius:6px}
+.toolbar a.home:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:99px;border:1px solid var(--ink2);background:var(--ink2);color:#fff;font:600 15px var(--sans);cursor:pointer;transition:background .2s, color .2s, transform .2s, box-shadow .2s}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--ink);transform:translateY(-1px);box-shadow:0 3px 0 #C99400}
+.btn svg{width:16px;height:16px;fill:currentColor}
+
+.sheet{max-width:52rem;margin:28px auto 48px;background:var(--main);border:1px solid var(--edge);padding:clamp(24px,6vw,64px) clamp(18px,6vw,72px)}
+header.top h1{font:700 clamp(1.9rem,4.5vw,2.4rem)/1.2 var(--serif);color:var(--ink);margin:0}
+header.top .role{font-size:1.15rem;font-weight:600;color:var(--ink2);margin:.25em 0 .7em}
+.contact{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:15px;color:var(--muted)}
+h2{font:700 13px var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--ink);margin:2.2em 0 .9em;padding-bottom:.45em;border-bottom:2px solid var(--accent)}
+.summary{margin:0}
+.entry{margin:0 0 1.4em}
+.entry h3{margin:0;font-size:1.02rem;font-weight:700;color:var(--ink)}
+.entry .org{font-weight:600;color:var(--ink2)}
+.entry .meta{font-size:14px;color:var(--muted);margin:.1em 0 .4em}
+.entry ul{margin:.3em 0 0;padding-left:1.15em}
+.entry li{margin:.25em 0}
+.entry li::marker{color:#C99400}
+.entry p{margin:.2em 0 0}
+.skills p{margin:.35em 0}
+.plain{margin:0;padding-left:1.15em}
+.plain li{margin:.25em 0}
+.note{font-size:13px;color:var(--muted);text-align:center;margin:-28px auto 40px;max-width:52rem;padding:0 16px}
+
+@media print{
+  @page{size:A4;margin:11mm 13mm}
+  body{background:#fff;color:#000;font-size:9.6pt;line-height:1.32}
+  .toolbar,.note{display:none}
+  .sheet{max-width:none;margin:0;padding:0;border:0}
+  a{color:#000;background:none}
+  header.top h1{font-size:18pt}
+  header.top .role{font-size:11pt;color:#000;margin:.1em 0 .35em}
+  .contact{color:#000;font-size:9pt;gap:2px 14px}
+  h2{font-size:9.5pt;margin:.9em 0 .35em;padding-bottom:.2em;border-bottom:1px solid #000;color:#000;break-after:avoid}
+  .entry{margin-bottom:.55em;break-inside:avoid}
+  .entry h3{font-size:9.8pt}
+  .entry .org{color:#000}
+  .entry .meta{color:#333;font-size:8.8pt;margin:0 0 .15em}
+  .entry ul{margin:.1em 0 0}
+  .entry li,.plain li{margin:.08em 0}
+  .entry li::marker{color:#000}
+  .skills p{margin:.15em 0}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar"><div class="bar">
+  <a class="home" href="index.html"><img src="assets/favicon-32.png" alt="" width="24" height="24">← Back to portfolio</a>
+  <button class="btn" type="button" onclick="window.print()"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l2.3 2.3V4a1 1 0 0 1 1-1zM5 18a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z"/></svg>Download PDF</button>
+</div></div>
+
+<main class="sheet">
+
+<header class="top">
+  <h1>Vahideh Hanifzadeh</h1>
+  <p class="role">UX Researcher</p>
+  <ul class="contact">
+    <li>Tehran, Iran</li>
+    <li><a href="mailto:vahidehhanif@gmail.com">vahidehhanif@gmail.com</a></li>
+    <li><a href="https://www.linkedin.com/in/vahide-hanifzade">linkedin.com/in/vahide-hanifzade</a></li>
+    <li><a href="https://vahidehnf.github.io/personal-website/">vahidehnf.github.io/personal-website</a></li>
+  </ul>
+</header>
+
+<section>
+  <h2>Summary</h2>
+  <p class="summary">UX Researcher with 5+ years in research and design across ride-hailing, e-commerce and enterprise software. I plan and run mixed-methods research (interviews, usability tests, surveys, conjoint analysis and segmentation) and follow it through to shipped, A/B-tested changes. Computer Engineering graduate, comfortable with SQL and statistics. Mentored 50+ students in UX research and design.</p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+
+  <div class="entry">
+    <h3>User Experience Researcher, <span class="org">Ride-hailing platform</span></h3>
+    <p class="meta">Apr 2024 – Present · Tehran, Iran</p>
+    <ul>
+      <li>Led 30+ mixed-methods studies for passengers and drivers across long-distance, carpool and scheduled rides, using surveys, interviews, unmoderated design tests, conjoint analysis and data analysis.</li>
+      <li><b>Long-distance bidding:</b> Surveyed drivers and passengers, which shaped a bid win-chance indicator and driver tiers that cut bid prices 4.8%, raised bids per request 3.19% and reduced passenger cancellations 0.62%.</li>
+      <li><b>Long-distance requests:</b> Surveyed 2,000+ drivers in a recurring study that led to a redesigned request flow and a verified-passenger badge: 14.3× luggage-preference use, +1.69% and +1.38% acceptance, −1.73% driver cancellations.</li>
+      <li><b>Scheduled rides:</b> Compared quick cancellers with drivers who finished (2,400+ responses). The resulting fixes cut passenger cancellations 2.75% and raised finished rides 17.8%.</li>
+      <li><b>Carpool:</b> Audited the passenger flow, which led to a new waiting page that raised acceptance 1.3% and cut cancellations after acceptance 1.5%.</li>
+      <li>Built quantitative personas of ride cancellation from interview, survey and behavioural data using latent class analysis (LCA).</li>
+      <li>Raised survey response rates from 0.9% to 5–6% by rewriting the SMS invitation; write SQL to extract and analyse ride data independently.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>User Experience Researcher, <span class="org">Digikala</span></h3>
+    <p class="meta">Aug 2022 – Apr 2024 · Tehran, Iran</p>
+    <ul>
+      <li>Increased Lightning Deal ad campaigns by 17% and raised funnel success from 42% to 74%, drawing on Google Analytics and Hotjar data, 37 seller interviews, a 390-seller survey and usability testing.</li>
+      <li>Restructured the seller panel's navigation with card sorting and tree testing, improving access to report and insight pages by 20%.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>User Experience Designer and Researcher, <span class="org">System Group</span></h3>
+    <p class="meta">Apr 2021 – Aug 2022 · Tehran, Iran</p>
+    <ul>
+      <li>Redesigned core accounting and logistics workflows in the Rahkaran and Sepidar ERP products, cutting task completion time by 50% and raising task success rates in usability testing.</li>
+      <li>Improved Sepidar's navigation menu through card sorting, reducing the time needed to find menu items.</li>
+      <li>Integrated user research into the design process and co-wrote the design team's UX research guide; contributed to the Fanoos design system.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Teaching and Mentoring</h2>
+  <div class="entry">
+    <h3>UX Research Mentor, <span class="org">DigiNext Academy</span></h3>
+    <p class="meta">Spring – Summer 2024</p>
+    <p>Mentored 30+ students in designing research plans and in running and analysing interviews, surveys and usability tests.</p>
+  </div>
+  <div class="entry">
+    <h3>Product Research and Design Mentor, <span class="org">Rahnema College</span></h3>
+    <p class="meta">Spring 2024</p>
+    <p>Mentored 8 students through a 9-week product design bootcamp.</p>
+  </div>
+  <div class="entry">
+    <h3>UX Research Mentor and Instructor, <span class="org">Digikala</span></h3>
+    <p class="meta">Fall 2023</p>
+    <p>Guided 20+ students in a 40-hour design thinking workshop and taught its testing phase.</p>
+  </div>
+  <div class="entry">
+    <h3>Teaching Assistant, <span class="org">Shahid Beheshti University</span></h3>
+    <p class="meta">Fall 2021</p>
+    <p>Cryptography.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="entry">
+    <h3>B.Sc. Computer Engineering, <span class="org">Shahid Beheshti University</span></h3>
+    <p class="meta">2017 – 2022 · Tehran, Iran · GPA 3.35/4</p>
+  </div>
+  <div class="entry">
+    <h3>Human-Computer Interaction (specialization course), <span class="org">University of Tehran</span></h3>
+    <p class="meta">2021 – 2022</p>
+  </div>
+  <div class="entry">
+    <h3>Diploma in Mathematics, <span class="org">National Organization for Development of Exceptional Talents (NODET)</span></h3>
+    <p class="meta">2013 – 2017 · Yazd, Iran · Grade 19.55/20</p>
+  </div>
+</section>
+
+<section class="skills">
+  <h2>Skills</h2>
+  <p><b>Research methods:</b> research planning, survey design and sampling, in-depth interviews, moderated and unmoderated usability testing, card sorting, tree testing, conjoint analysis, segmentation (latent class analysis), design thinking.</p>
+  <p><b>Analysis and tools:</b> SQL, statistical data analysis, Google Analytics, Hotjar, Lyssna, prototyping.</p>
+  <p><b>Languages:</b> Persian (native), English (professional working proficiency).</p>
+</section>
+
+<section>
+  <h2>Certifications</h2>
+  <ul class="plain">
+    <li>User Experience Design Certificate</li>
+    <li>Product Design</li>
+    <li>Product Masterclass: How to Build Digital Products</li>
+    <li>Enterprise Design Thinking Practitioner</li>
+    <li>Enterprise Design Thinking – Team Essentials for AI</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Volunteering</h2>
+  <div class="entry">
+    <h3>User Experience Designer, <span class="org">Afraway</span></h3>
+    <p class="meta">2021 – 2023</p>
+    <p>Non-profit building digital infrastructure for charities and NGOs.</p>
+  </div>
+  <div class="entry">
+    <h3>Environmental Volunteer, <span class="org">Espe Group</span></h3>
+    <p class="meta">2022 – Present</p>
+  </div>
+</section>
+
+<section>
+  <h2>Honors</h2>
+  <ul class="plain">
+    <li>Ranked 450th in Iran's national university entrance exam.</li>
+  </ul>
+</section>
+
+</main>
+<p class="note">Tip: in the print dialog, choose "Save as PDF" and turn off headers and footers for a clean file.</p>
+
+</body>
+</html>
