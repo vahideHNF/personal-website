@@ -6,7 +6,7 @@ Vahideh Hanifzadeh's UX research portfolio. Plain HTML and CSS in a single file 
 
 Open `index.html` and edit:
 
-- **In-depth case studies** are separate pages in `case-studies/` (one HTML file each, shared styles in `case-studies/case.css`). Snapp numbers are illustrative because the real ones are under NDA; Digikala numbers are real. Every project in Work is a card in `index.html` under `id="case-studies"` that links to its page.
+- **In-depth case studies** are separate pages in `case-studies/` (one HTML file each, shared styles in `case-studies/case.css`). Case-study numbers are illustrative because the original data is under NDA. Every project in Work is a card in `index.html` under `id="case-studies"` that links to its page.
 - **Password-protected studies** are currently switched off: the section and its script are wrapped in comments in `index.html` (search for `PASSWORD`). Remove the comment wrappers to bring them back.
 - **Resume**: `resume.html` (Experience, Education, Skills and more). Its "Download PDF" button opens the print dialog; choose *Save as PDF*.
 - **Contact**: the email and LinkedIn buttons.
