@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fair Bidding — Vahideh Hanifzadeh</title>
-<meta name="description" content="Case study: research on both sides of a ride-hailing bidding marketplace that led to a bid win-chance indicator and driver tiers.">
+<meta name="description" content="Case study: how driver and passenger research led to a bid win-chance indicator and driver tiers that brought bid prices down.">
 <link rel="icon" href="../favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png">
@@ -14,6 +14,68 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
 <link rel="stylesheet" href="case.css">
+<style>
+/* Page-specific visuals for the bidding story: a vertical timeline with a
+   picture at every step, so the story reads mostly through visuals. */
+.story{list-style:none;margin:3em 0 0;padding:0;position:relative}
+.story::before{content:"";position:absolute;left:15px;top:6px;bottom:6px;width:2px;background:var(--btn-line)}
+.step{position:relative;padding:0 0 3.2em 52px}
+.step:last-child{padding-bottom:0}
+.dot{position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--ink);font:700 14px/32px var(--sans);text-align:center;box-shadow:0 0 0 5px #fff}
+.step .when{font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-deep)}
+.step h2{font-size:clamp(1.2rem,2.8vw,1.45rem);margin:.25em 0 .5em}
+.step > p{font-size:16px;max-width:36rem}
+.vis{margin-top:1.3em;padding:1.4em;border:1px solid var(--btn-line);border-radius:10px;background:#FCFCFA}
+.vis .cap{font-size:13px;color:var(--muted);margin-top:.9em}
+/* rings */
+.rings{display:flex;flex-wrap:wrap;gap:22px 34px;align-items:center}
+.ring{display:flex;align-items:center;gap:14px}
+.ring i{--p:50;width:76px;height:76px;border-radius:50%;flex:none;background:conic-gradient(var(--c,#2a78d6) calc(var(--p)*1%), #E8EDF1 0);display:grid;place-items:center}
+.ring i::after{content:"";width:56px;height:56px;border-radius:50%;background:#FCFCFA}
+.ring b{display:block;font:700 1.6rem/1 var(--serif);color:var(--ink)}
+.ring span{font-size:14px;color:var(--text);line-height:1.4}
+/* people */
+.people{display:flex;gap:6px;align-items:flex-end}
+.people svg{width:34px;height:44px}
+.people .on{fill:#eb6834}.people .off{fill:#D5DDE3}
+.people-row{display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center}
+.people-row p{font-size:15px;max-width:22rem;margin:0}
+/* loop */
+.loop{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.loop .box{flex:1 1 9rem;background:#fff;border:1px solid var(--btn-line);border-radius:8px;padding:.8em 1em;font-size:14.5px;line-height:1.45;text-align:center}
+.loop .box b{display:block;font-size:13px;color:var(--soft);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.2em}
+.loop .arrow{color:var(--accent-deep);font:700 20px var(--sans)}
+.loop-back{font-size:13px;color:var(--muted);text-align:center;margin-top:.8em}
+/* phone mock */
+.mock{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.phone{width:240px;border:2px solid #1F2A33;border-radius:22px;padding:16px 14px;background:#fff;box-shadow:0 14px 30px -20px rgba(31,42,51,.5)}
+.phone .row1{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.phone .price{font:700 1.7rem var(--serif);color:var(--ink);margin:.35em 0 .2em}
+.phone .meter{height:10px;border-radius:99px;background:#E8EDF1;overflow:hidden}
+.phone .meter i{display:block;height:100%;width:72%;background:linear-gradient(90deg,#FFC629,#1baf7a);border-radius:99px;animation:fill 1.6s cubic-bezier(.2,.7,.2,1) .4s both}
+@keyframes fill{from{width:0}}
+.phone .chance{display:flex;justify-content:space-between;font-size:13px;margin-top:.45em}
+.phone .chance b{color:#1E6B34}
+.phone .btnx{margin-top:1em;background:#1F2A33;color:#fff;text-align:center;border-radius:99px;padding:.55em;font-size:14px;font-weight:600}
+.tiers{display:grid;gap:8px;font-size:14.5px}
+.tier{display:flex;align-items:center;gap:10px}
+.tier span{display:inline-block;min-width:6.5rem;text-align:center;padding:.3em .8em;border-radius:99px;font-weight:600;font-size:13px}
+.t1{background:#1F2A33;color:#fff}.t2{background:#FFE58A;color:#3F3410}.t3{background:#E8EDF1;color:#2E4453}
+/* diverging bars */
+.div-rows{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.div-row{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr) 4.2rem;gap:12px;align-items:center;font-size:14px}
+.div-track{position:relative;height:14px}
+.div-track::before{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:1px;background:#B9C6CF}
+.div-track i{position:absolute;top:0;height:100%;border-radius:4px}
+.div-track i.neg{right:50%}.div-track i.pos{left:50%}
+.div-row .v{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.legend2{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;margin-bottom:1em}
+.legend2 i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.next-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.next-list li{display:flex;gap:10px;align-items:center;font-size:15px}
+@media (max-width:560px){.loop{flex-direction:column;align-items:stretch}.loop .arrow{text-align:center;transform:rotate(90deg)}.div-row{grid-template-columns:1fr 3.6rem}.div-row .lbl{grid-column:1 / -1}.story::before{left:13px}.dot{width:28px;height:28px;line-height:28px}.step{padding-left:44px}}
+@media (prefers-reduced-motion: reduce){.phone .meter i{animation:none}}
+</style>
 </head>
 <body>
 <nav class="navbar" aria-label="Main"><div class="bar">
@@ -25,13 +87,13 @@
 
 <header class="case-hero">
   <span class="kicker">Snapp! · Marketplace &amp; pricing · 2025–2026</span>
-  <h1>Bidding blind: making long-distance bidding fair for drivers and passengers</h1>
-  <p class="sub">On long-distance trips, drivers can bid a price instead of accepting the standard fare. Drivers were bidding without knowing what would win, and passengers were getting offers at two to three times the normal fare. Research on both sides of the marketplace led to a bid win-chance indicator and driver tiers, and bid prices came down.</p>
+  <h1>Why were drivers bidding two to three times the fare?</h1>
+  <p class="sub">On long-distance trips, drivers can bid their own price. Both sides were losing trust in it. This is how research turned <b>guessing into a live win-chance signal</b>, and brought prices down.</p>
   <dl class="meta">
     <div><dt>My role</dt><dd>UX Researcher (lead)</dd></div>
     <div><dt>Team</dt><dd>Product managers, designers, data team</dd></div>
     <div><dt>Timeline</dt><dd>Autumn 2025 – summer 2026</dd></div>
-    <div><dt>Methods</dt><dd>Driver &amp; passenger surveys, conjoint analysis, A/B tests</dd></div>
+    <div><dt>Methods</dt><dd>Driver &amp; passenger surveys, A/B tests</dd></div>
   </dl>
   <div class="nda" role="note">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2zm0 4.5L19.5 19h-15L12 6.5zM11 10v5h2v-5h-2zm0 6v2h2v-2h-2z"/></svg>
@@ -39,111 +101,123 @@
   </div>
 </header>
 
-<div class="tldr">
-  <h2>In short</h2>
-  <ul>
-    <li><span>Problem</span><div>Most drivers had tried bidding but only half liked it, and passengers were complaining about inflated prices. Both sides were losing trust in the same feature.</div></li>
-    <li><span>Insight</span><div>Drivers weren't greedy, they were <mark>blind</mark>: with no feedback on what wins, they guessed high. And a single bid limit for every car felt unfair to drivers of better cars.</div></li>
-    <li><span>Impact</span><div>A live win-chance indicator and driver tiers shipped: <b>−5.5%</b> average bid price, <b>+3.6%</b> bids per request, <b>−0.7%</b> passenger cancellations.</div></li>
+<ol class="story">
+
+  <li class="step">
+    <span class="dot">1</span>
+    <span class="when">It started with a survey</span>
+    <h2>Drivers loved the idea of bidding, not the experience</h2>
+    <p>The first long-distance driver survey showed almost everyone had tried bidding. Only half were happy with it.</p>
+    <div class="vis">
+      <div class="rings">
+        <div class="ring"><i style="--p:82" aria-hidden="true"></i><div><b>82%</b><span>of drivers had tried bidding</span></div></div>
+        <div class="ring"><i style="--p:51;--c:#eb6834" aria-hidden="true"></i><div><b>51%</b><span>were satisfied with it</span></div></div>
+      </div>
+    </div>
+  </li>
+
+  <li class="step">
+    <span class="dot">2</span>
+    <span class="when">Then passengers said the same</span>
+    <h2>Passengers saw prices they couldn't trust</h2>
+    <div class="vis">
+      <div class="people-row">
+        <div class="people" role="img" aria-label="4 out of 5"><svg viewBox="0 0 34 44" class="on" aria-hidden="true"><circle cx="17" cy="9" r="8"/><path d="M3 44v-9a14 14 0 0 1 28 0v9z"/></svg><svg viewBox="0 0 34 44" class="on" aria-hidden="true"><circle cx="17" cy="9" r="8"/><path d="M3 44v-9a14 14 0 0 1 28 0v9z"/></svg><svg viewBox="0 0 34 44" class="on" aria-hidden="true"><circle cx="17" cy="9" r="8"/><path d="M3 44v-9a14 14 0 0 1 28 0v9z"/></svg><svg viewBox="0 0 34 44" class="on" aria-hidden="true"><circle cx="17" cy="9" r="8"/><path d="M3 44v-9a14 14 0 0 1 28 0v9z"/></svg><svg viewBox="0 0 34 44" class="off" aria-hidden="true"><circle cx="17" cy="9" r="8"/><path d="M3 44v-9a14 14 0 0 1 28 0v9z"/></svg></div>
+        <p><b>4 in 5</b> unhappy passengers said drivers bid <b>two to three times</b> the standard fare.</p>
+      </div>
+    </div>
+  </li>
+
+  <li class="step">
+    <span class="dot">3</span>
+    <span class="when">The diagnosis</span>
+    <h2>Drivers weren't greedy. They were <mark>bidding blind</mark>.</h2>
+    <div class="vis">
+      <div class="loop" role="img" aria-label="Guess a price, get rejected with no feedback, give up or overbid next time, and repeat">
+        <div class="box"><b>Guess</b>Driver picks a price with no signal</div>
+        <span class="arrow" aria-hidden="true">→</span>
+        <div class="box"><b>Rejected</b>No feedback on why</div>
+        <span class="arrow" aria-hidden="true">→</span>
+        <div class="box"><b>React</b>Give up, or overbid next time</div>
+      </div>
+      <p class="loop-back">↺ and the loop repeats, on top of one bid limit for every car</p>
+    </div>
+  </li>
+
+  <li class="step">
+    <span class="dot">4</span>
+    <span class="when">What we built</span>
+    <h2>Show drivers what wins, and set fair limits by car</h2>
+    <div class="vis">
+      <div class="mock">
+        <div class="phone" aria-hidden="true">
+          <div class="row1"><span>Your bid</span><span>Long-distance trip</span></div>
+          <div class="price">1,250,000</div>
+          <div class="meter"><i></i></div>
+          <div class="chance"><span>Chance of winning</span><b>High</b></div>
+          <div class="btnx">Send bid</div>
+        </div>
+        <div class="tiers">
+          <div class="tier"><span class="t1">Premium</span>newer, comfortable cars</div>
+          <div class="tier"><span class="t2">Standard</span>most cars</div>
+          <div class="tier"><span class="t3">Economy</span>older cars</div>
+          <p class="cap" style="margin:.4em 0 0">Each tier gets its own bid limits, set by car model and year.</p>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="step">
+    <span class="dot">5</span>
+    <span class="when">Measured on real rides</span>
+    <h2>Prices came down, and drivers kept bidding</h2>
+    <div class="vis">
+      <ul class="div-rows"><li class="div-row" title="Average bid price: −5.5% (better)"><span class="lbl">Average bid price</span><span class="div-track"><i class="neg" style="width:38%;background:#2a78d6"></i></span><span class="v">−5.5%</span></li><li class="div-row" title="Bids per request: +3.6% (better)"><span class="lbl">Bids per request</span><span class="div-track"><i class="pos" style="width:25%;background:#2a78d6"></i></span><span class="v">+3.6%</span></li><li class="div-row" title="Passenger cancellations: −0.7% (better)"><span class="lbl">Passenger cancellations</span><span class="div-track"><i class="neg" style="width:6%;background:#2a78d6"></i></span><span class="v">−0.7%</span></li></ul>
+      <p class="cap">Change vs. the old bidding flow, A/B test · plus <b>3 seconds</b> faster for passengers to accept a bid</p>
+    </div>
+  </li>
+
+  <li class="step">
+    <span class="dot">6</span>
+    <span class="when">A trade-off we tested</span>
+    <h2>A narrower price range: fewer bids, more finished rides</h2>
+    <div class="vis">
+      <div class="legend2"><span><i style="background:#2a78d6"></i>Gain</span><span><i style="background:#eb6834"></i>Cost</span></div>
+      <ul class="div-rows"><li class="div-row" title="Finish / accept: +3.2% (gain)"><span class="lbl">Finish / accept</span><span class="div-track"><i class="pos" style="width:28%;background:#2a78d6"></i></span><span class="v">+3.2%</span></li><li class="div-row" title="Fulfillment: +1.5% (gain)"><span class="lbl">Fulfillment</span><span class="div-track"><i class="pos" style="width:13%;background:#2a78d6"></i></span><span class="v">+1.5%</span></li><li class="div-row" title="Requests receiving a bid: −2.0% (cost)"><span class="lbl">Requests receiving a bid</span><span class="div-track"><i class="neg" style="width:18%;background:#eb6834"></i></span><span class="v">−2.0%</span></li><li class="div-row" title="Acceptance: −1.3% (cost)"><span class="lbl">Acceptance</span><span class="div-track"><i class="neg" style="width:12%;background:#eb6834"></i></span><span class="v">−1.3%</span></li></ul>
+      <p class="cap">Top price multiplier lowered from 2.5× to 2.2×, A/B test</p>
+    </div>
+  </li>
+
+  <li class="step">
+    <span class="dot">7</span>
+    <span class="when">Checking back with drivers</span>
+    <h2>Fewer drivers gave up after a rejected bid</h2>
+    <div class="vis">
+      <figure class="chart" style="margin:0;border:0;padding:0">
+        <div class="legend"><span><i style="background:var(--before)"></i>Before</span><span><i style="background:var(--after)"></i>After</span></div>
+        <ul class="rows">
+          <li class="row" title="Abandoned the ride after a rejected bid: 29% before, 21% after"><span class="lbl">Gave up on the ride after a rejected bid</span><span class="bars"><div><span class="b" style="width:72%;background:var(--before)"></span><span class="v">29%</span></div><div><span class="b" style="width:52%;background:var(--after)"></span><span class="v">21%</span></div></span></li>
+        </ul>
+      </figure>
+      <p class="cap">The next complaint to solve: competition between drivers (see <a href="driver-survey.html">the driver survey</a>).</p>
+    </div>
+  </li>
+
+</ol>
+
+<section>
+  <h2><span class="n">Recommendations</span>In one glance</h2>
+  <ul class="next-list">
+    <li><span class="status shipped">Shipped</span>Live win-chance indicator while bidding</li>
+    <li><span class="status shipped">Shipped</span>Driver tiers with their own bid limits</li>
+    <li><span class="status shipped">Tested</span>Narrower suggested price range</li>
+    <li><span class="status later">Next</span>Explain rejected bids and suggest a competitive range</li>
   </ul>
-</div>
-
-<section>
-  <h2><span class="n">01 — The problem</span>A marketplace where both sides were unhappy</h2>
-  <p>For long-distance trips, a passenger requests a ride and drivers can either accept the standard fare or bid their own price. The passenger then picks an offer. Bidding gives drivers a fair price on long routes, while passengers get choice. When it works, everyone wins.</p>
-  <p>It wasn't working. In the first long-distance driver survey, <b>82% of drivers had tried bidding, but only 51% were satisfied</b>. On the passenger side, about four in five passengers who were unhappy with long-distance rides said drivers bid two to three times the standard fare. Rejected bids also wasted time for both sides: drivers waited for an answer that never came, and passengers scrolled past offers they would never accept.</p>
-  <p><b>The question was what was going wrong in the bidding moment, for each side, and what would fix it without just capping prices.</b></p>
-</section>
-
-<section>
-  <h2><span class="n">02 — My role</span>What I owned</h2>
-  <p>I led the research on both sides of the marketplace across several studies: the bidding questions in the periodic driver survey, a passenger survey on long-distance pricing, and the research team's first conjoint study on what passengers weigh when choosing a bid. I turned the findings into recommendations for the product team, and used the next survey round to check what had changed after launch.</p>
-</section>
-
-<section>
-  <h2><span class="n">03 — Approach</span>Look at the same moment from both sides</h2>
-  <ul class="plain">
-    <li><b>Drivers (survey, about 2,000 responses):</b> how they bid, why they were unhappy, and what they did after a rejected bid, broken down by driver persona.</li>
-    <li><b>Passengers (survey):</b> how they judged driver offers and what made them reject bids or cancel.</li>
-    <li><b>Passengers (conjoint):</b> passengers chose between realistic bid cards that varied price, pickup time, car type and the driver's number of completed rides. This showed how much each factor really drives the choice, instead of asking people what they <i>think</i> matters.</li>
-  </ul>
-  <p><b>Limitation:</b> surveys and conjoint show what people say and choose in a controlled task. So every shipped change was checked with A/B tests on real rides.</p>
-</section>
-
-<section>
-  <h2><span class="n">04 — What we found</span>Four findings</h2>
-
-  <div class="insight">
-    <h3>1. Drivers were bidding blind</h3>
-    <p>Drivers had no idea whether a price would win, so many overbid and never heard back. Different driver groups reacted to a rejected bid in opposite ways: <b>part-timers often gave up on the ride, while older drivers lowered their price and tried again.</b> None of them got any feedback to learn from.</p>
-  </div>
-
-  <div class="insight">
-    <h3>2. One bid limit for every car felt unfair</h3>
-    <p>Every driver had the same bidding limit, whatever their car. Drivers saw this as unfair and inflexible: a newer, more comfortable car and an old one were capped the same way. One rule for everyone was too strict for some drivers and too loose for others.</p>
-  </div>
-
-  <div class="insight">
-    <h3>3. Passengers choose on price and pickup time, not driver history</h3>
-    <p>The conjoint study showed price dominated passengers' choice, followed by how soon the driver could arrive and the car type. The driver's number of completed rides, which the team planned to add to the bid card, had almost no effect. <b>That feature was dropped before anyone built it</b>, which saved engineering and product time.</p>
-    <figure class="chart">
-      <figcaption>What drives a passenger's choice between bids</figcaption>
-      <p class="note">Relative importance from the conjoint study · illustrative numbers</p>
-      <ul class="rows">
-        <li class="row" title="Price: 52%"><span class="lbl">Price</span><span class="bars"><div><span class="b" style="width:87%;background:var(--s1)"></span><span class="v">52%</span></div></span></li>
-        <li class="row" title="Pickup time: 26%"><span class="lbl">Pickup time (ETA)</span><span class="bars"><div><span class="b" style="width:43%;background:var(--s1)"></span><span class="v">26%</span></div></span></li>
-        <li class="row" title="Car type: 19%"><span class="lbl">Car type</span><span class="bars"><div><span class="b" style="width:32%;background:var(--s1)"></span><span class="v">19%</span></div></span></li>
-        <li class="row" title="Driver's completed rides: 3%"><span class="lbl">Driver's completed rides</span><span class="bars"><div><span class="b" style="width:5%;background:var(--s1)"></span><span class="v">3%</span></div></span></li>
-      </ul>
-    </figure>
-  </div>
-
-  <div class="insight">
-    <h3>4. Overpricing was a feedback problem, not a greed problem</h3>
-    <p>Put together, the two sides explained each other. Drivers guessed high because they had no signal, passengers saw the high guesses and lost trust, and drivers then got rejected and gave up. <b>The fix wasn't a lower cap. It was giving drivers the information passengers were already using to choose.</b></p>
-  </div>
-</section>
-
-<section>
-  <h2><span class="n">05 — From insight to decisions</span>Show drivers what wins, and set fair limits</h2>
-  <table class="decisions">
-    <thead><tr><th>Recommendation</th><th>Why</th><th>Status</th></tr></thead>
-    <tbody>
-      <tr><td>Show a live win-chance indicator while the driver sets a bid, based on price, pickup time, rating and driver tier</td><td>Drivers were bidding blind</td><td><span class="status shipped">Shipped</span></td></tr>
-      <tr><td>Group drivers into tiers (Premium / Standard / Economy) by car model and year, each with its own bid limits</td><td>One limit for every car felt unfair</td><td><span class="status shipped">Shipped</span></td></tr>
-      <tr><td>Don't add the driver's completed-ride count to the bid card</td><td>The conjoint study showed it doesn't affect passenger choice</td><td><span class="status later">Dropped</span></td></tr>
-      <tr><td>Narrow the suggested price range (for example, a top multiplier of 2.5× → 2.2×)</td><td>Passengers reported inflated bids</td><td><span class="status shipped">Tested in A/B</span></td></tr>
-      <tr><td>Explain why a bid was rejected and suggest a competitive range</td><td>Competition between drivers became the main complaint in Round 2</td><td><span class="status later">Next</span></td></tr>
-    </tbody>
-  </table>
-</section>
-
-<section>
-  <h2><span class="n">06 — Impact</span>Measured on real rides</h2>
-  <p>The win-chance indicator and driver tiers were tested against the old bidding flow. Drivers responded by pricing more competitively in every tier, without bidding less:</p>
-  <div class="impact">
-    <div><div class="num">−5.5%</div><div class="cap">average bid price, across all tiers</div></div>
-    <div><div class="num">+3.6%</div><div class="cap">bids per ride request</div></div>
-    <div><div class="num">−3s</div><div class="cap">time for passengers to accept a bid</div></div>
-    <div><div class="num">−0.7%</div><div class="cap">passenger cancellations</div></div>
-  </div>
-  <p class="impact-note">Illustrative numbers. The real results are in my <a href="../resume.html">resume</a>.</p>
-  <p style="margin-top:1.2em">The narrower price range had a clear trade-off: fewer requests received a bid and acceptance dipped slightly, but the rides that were accepted were more likely to happen (<b>+3.2%</b> finish/accept, <b>+1.5%</b> fulfillment, both illustrative). Both sides of that trade-off were reported, so the team could decide on it knowingly.</p>
-  <p>The next driver survey showed the change from the drivers' side: fewer drivers abandoned a ride after a rejected bid (29% → 21%), and complaints about the bid limit fell. The main complaint became competition from other drivers, the next problem to solve (see <a href="driver-survey.html">the driver survey</a>).</p>
-</section>
-
-<section>
-  <h2><span class="n">07 — What I learned</span>Reflection</h2>
-  <div class="learn">
-    <div><b>In a marketplace, research both sides of the same moment.</b>The driver survey alone said "drivers want higher limits". The passenger data alone said "drivers overcharge". Together they showed a missing feedback loop, which neither side could see.</div>
-    <div><b>Measure what people do, not what they say matters.</b>Asked directly, passengers might well say a driver's experience matters. The conjoint showed it barely moved their choices, and that saved a feature from being built.</div>
-    <div><b>Name the trade-offs.</b>The price-range test improved finished rides but lowered bid coverage. Showing both sides of the result kept the decision with the team, where it belongs.</div>
-  </div>
 </section>
 
 <nav class="next" aria-label="More case studies">
   <a href="../index.html#work"><small>Back</small><strong>All work</strong></a>
-  <a href="scheduled-rides.html" style="text-align:right"><small>Next case study</small><strong>Why drivers cancel scheduled rides they just accepted</strong></a>
+  <a href="scheduled-rides.html" style="text-align:right"><small>Next case study</small><strong>Why do drivers cancel a ride minutes after accepting it?</strong></a>
 </nav>
 
 </article>
