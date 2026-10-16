@@ -272,6 +272,14 @@ b, strong{color:var(--ink);font-weight:700}
   .feat,.feat::before,.btn,.feat-more i{transition:none}
   .js .section-title.reveal:not(.in)::after{width:3em}
 }
+/* Wider layout on large screens */
+@media (min-width:900px){
+  .main, .navbar .bar{max-width:1440px}
+  .hero-content{max-width:58rem}
+  .hero .intro{max-width:52rem}
+  .section-subtitle{max-width:46rem}
+  .feat-grid{gap:32px}
+}
 </style>
 </head>
 <body>
