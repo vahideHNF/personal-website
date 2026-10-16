@@ -234,3 +234,9 @@ section > h2 .n{color:var(--accent-deep)}
   .wrap{max-width:62rem;padding-inline:40px}
   .step > p{max-width:48rem}
 }
+/* Wider layout on large screens */
+@media (min-width:900px){
+  .main, .navbar .bar{max-width:1440px}
+  .wrap{max-width:76rem;padding-inline:48px}
+  .step > p{max-width:60rem}
+}
