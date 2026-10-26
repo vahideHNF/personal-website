@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{SHORT_TITLE e.g. Scheduled Rides}} — {{FULL_NAME}}</title>
+<meta name="description" content="Case study: {{ONE_SENTENCE: the question and what changed}}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{CASE_TITLE_AS_A_QUESTION}}">
+<meta property="og:description" content="{{SAME_ONE_SENTENCE}}">
+<meta property="og:image" content="{{SITE_URL}}assets/favicon-512.png">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../assets/theme.css?v=1">
+<link rel="stylesheet" href="case.css?v=1">
+</head>
+<body>
+<nav class="navbar" aria-label="Main"><div class="bar">
+  <a href="../index.html#work">← <img class="logo" src="../assets/favicon.svg" alt="" width="22" height="22">{{FULL_NAME}}</a>
+  <a href="../index.html#contact">Contact</a>
+</div></nav>
+
+<div class="main"><article class="wrap">
+
+<header class="case-hero">
+  <span class="kicker">{{COMPANY}} · {{PRODUCT_AREA}} · {{YEAR or YEAR–YEAR}}</span>
+  <h1>{{CASE_TITLE_AS_A_QUESTION}}</h1>
+  <p class="sub">{{2-3 SENTENCES: the context a stranger needs, the tension, and a hint of the answer with one phrase in <b>bold</b>.}}</p>
+  <dl class="meta">
+    <div><dt>My role</dt><dd>{{e.g. UX Researcher (lead)}}</dd></div>
+    <div><dt>Team</dt><dd>{{who you worked with}}</dd></div>
+    <div><dt>Timeline</dt><dd>{{e.g. 3 weeks, summer 2026}}</dd></div>
+    <div><dt>Methods</dt><dd>{{2-4 methods, plain words}}</dd></div>
+  </dl>
+  <!-- Keep this note ONLY when the numbers on this page were changed for confidentiality. Delete it when they are real. -->
+  <div class="nda" role="note">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2zm0 4.5L19.5 19h-15L12 6.5zM11 10v5h2v-5h-2zm0 6v2h2v-2h-2z"/></svg>
+    <p><b>Numbers on this page are illustrative.</b> Study data is confidential under NDA, so these figures are changed. The findings, the direction of every change and the decisions are real. The real measured results of the shipped changes are listed in my <a href="../resume.html">resume</a>.</p>
+  </div>
+</header>
+
+<div class="tldr">
+  <h2>In short</h2>
+  <ul>
+    <li><span>Problem</span><div>{{ONE_SENTENCE with a number if there is one}}</div></li>
+    <li><span>Insight</span><div>{{ONE_SENTENCE; the key phrase in <mark>…</mark> (the only <mark> on the page besides at most one step heading)}}</div></li>
+    <li><span>Impact</span><div>{{WHAT_SHIPPED: <b>+N%</b> metric, <b>−N%</b> metric. If nothing shipped yet, say what the work changed: a decision, a roadmap, a stopped project.}}</div></li>
+  </ul>
+</div>
+
+<!-- The story: 5 to 9 steps. Each step = a "when" label, a heading that states the
+     finding in one sentence, at most two short sentences of text, and ONE visual from
+     references/visual-components.md. The visuals carry the story; text only links them. -->
+<ol class="story">
+
+  <li class="step">
+    <span class="dot">1</span>
+    <span class="when">{{WHEN e.g. It started with a survey}}</span>
+    <h2>{{FINDING_AS_A_SENTENCE}}</h2>
+    <p>{{OPTIONAL: up to two short sentences of context.}}</p>
+    <div class="vis">
+      {{ONE_VISUAL_COMPONENT}}
+      <p class="cap">{{SOURCE_AND_BASE e.g. Driver survey · 2,300 responses · multiple answers}}</p>
+    </div>
+  </li>
+
+</ol>
+
+<section>
+  <h2><span class="n">Recommendations</span>In one glance</h2>
+  <ul class="next-list">
+    <!-- Status: shipped | tested | dev (In development) | later (Next) | dropped -->
+    <li><span class="status shipped">Shipped</span>{{RECOMMENDATION in plain words}}</li>
+    <li><span class="status dev">In development</span>{{RECOMMENDATION}}</li>
+    <li><span class="status later">Next</span>{{RECOMMENDATION}}</li>
+  </ul>
+</section>
+
+<!-- Link the case studies in the same order as the cards on the home page.
+     First page: the left link is "Back / All work". Last page: the right link is. -->
+<nav class="next" aria-label="More case studies">
+  <a href="{{PREVIOUS_SLUG}}.html"><small>Previous case study</small><strong>{{PREVIOUS_TITLE}}</strong></a>
+  <a href="{{NEXT_SLUG}}.html"><small>Next case study</small><strong>{{NEXT_TITLE}}</strong></a>
+</nav>
+
+</article>
+<footer>© {{YEAR}} {{FULL_NAME}}</footer>
+</div>
+</body>
+</html>

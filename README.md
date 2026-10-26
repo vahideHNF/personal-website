@@ -16,6 +16,10 @@ Open `index.html` and edit:
 Settings → Pages → Build and deployment → Source: *Deploy from a branch*, Branch: `main`, folder `/ (root)`.
 The site is then served at https://vahidehnf.github.io/personal-website/.
 
+## Portfolio skill for other researchers
+
+`.claude/skills/uxr-portfolio-builder/` is a Claude skill that builds a portfolio like this one (home page, ATS-friendly resume, visual case studies) for any UX researcher, from their CV, reports and a short brief. Start with its [README](.claude/skills/uxr-portfolio-builder/README.md): how to install it, the brief to fill in, and prompts to copy. Claude Code picks it up automatically in this repository; to share it, send the packaged `uxr-portfolio-builder.skill` file.
+
 ## Password-protected case studies
 
 The locked case studies contain internal results, so the page only contains an encrypted copy (AES-256-GCM, key from the password via PBKDF2). Visitors type the password and the browser decrypts it. The readable source is **not** in this repo.

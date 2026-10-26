@@ -1,0 +1,38 @@
+/* Design tokens shared by every page. Colours and fonts change in ONE place:
+   run scripts/theme.py from the portfolio skill (it rewrites the block between
+   the theme markers and checks contrast). The neutrals below rarely change. */
+
+/* theme:start (written by scripts/theme.py; re-run it rather than editing by hand) */
+:root{
+  --accent:#FFC629; --accent-soft:#FFE089; --accent-tint:#FFF8E3;
+  --accent-deep:#8A6B16; --on-accent:#0A0A0A;
+  --head:'Merriweather', Georgia, serif;
+  --body:'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+/* theme:end */
+
+:root{
+  /* page and text */
+  --page:#E9EDF0;   /* grey around the white column */
+  --main:#FFFFFF;   /* the column */
+  --edge:#CEDFEA;   /* column border */
+  --ink:#0A0A0A;    /* headings, bold */
+  --ink2:#1F2A33;   /* links, primary button */
+  --text:#333333;   /* body text */
+  --muted:#6B6B6B;  /* captions (5:1 on white) */
+  --soft:#5E7383;   /* small uppercase labels (4.6:1 on white) */
+  --line:#D5E0E7;   /* card and panel borders */
+  --line-2:#EFEFEF; /* hairlines between sections */
+  --bar:#ECEFF1;    /* neutral chip background */
+  --tint:#F5F8FA;   /* pale panel background */
+  --paper:#FCFCFA;  /* visual panels and card thumbnails */
+  --chev:#B7C8D4;   /* the bobbing arrow */
+  --nav:#F8F8F8; --nav-line:#E7E7E7;
+
+  /* charts: kept apart from the accent so data colours never clash with
+     highlights. Two groups use s1/s2; before/after uses one hue, light to dark. */
+  --s1:#2a78d6; --s2:#eb6834; --before:#86b6ef; --after:#1c5cab;
+  --gain:var(--s1); --cost:var(--s2); --track:#E8EDF1; --off:#D5DDE3;
+
+  color-scheme:light;
+}

@@ -1,0 +1,227 @@
+/* Case-study pages: a story told as a numbered visual timeline.
+   Tokens (colours, fonts) live in ../assets/theme.css. After editing this file,
+   bump the ?v= on every case page's stylesheet link (scripts/theme.py SITE --refresh)
+   so browsers don't keep the old cached copy. Component snippets and when to use
+   each one: references/visual-components.md in the portfolio skill. */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--page);color:var(--text);font:400 17px/1.75 var(--body);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--head);font-weight:700;color:var(--ink);margin:0;line-height:1.3;text-wrap:balance}
+p{margin:0}
+b,strong{color:var(--ink);font-weight:600}
+::selection{background:var(--accent-soft);color:var(--ink)}
+a{color:var(--ink2);text-decoration:none}
+a:focus-visible{outline:2px solid var(--ink2);outline-offset:3px;border-radius:2px}
+.wrap a{background:linear-gradient(var(--accent),var(--accent)) 0 100%/100% 2px no-repeat;transition:background-size .25s ease,color .2s}
+.wrap a:hover{color:var(--on-accent);background-size:100% 100%}
+mark{color:inherit;padding:0 .12em;background:linear-gradient(transparent 58%,var(--accent-soft) 58%) 0 0/0% 100% no-repeat;animation:draw .9s cubic-bezier(.2,.7,.2,1) .6s forwards}
+@keyframes draw{to{background-size:100% 100%}}
+
+/* Frame */
+.navbar{position:fixed;inset:0 0 auto 0;z-index:10;background:var(--nav);border-bottom:1px solid var(--nav-line)}
+.navbar .bar{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 16px;min-height:50px}
+.navbar a{color:var(--muted);font-size:15px}
+.navbar a:hover{color:var(--ink)}
+.navbar .logo{width:22px;height:22px;border-radius:5px;vertical-align:-5px;margin-inline:4px 8px}
+.main{max-width:1440px;margin:0 auto;background:var(--main);border-inline:1px solid var(--edge);min-height:100vh}
+.wrap{max-width:46rem;margin:0 auto;padding:calc(50px + 5em) clamp(16px,5vw,32px) 4em}
+footer{border-top:1px solid var(--line-2);padding:1em clamp(16px,5vw,32px);font-size:12px;font-weight:600;color:var(--soft);text-align:center}
+
+/* Hero */
+.case-hero > *{opacity:0;transform:translateY(12px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.case-hero > :nth-child(2){animation-delay:.1s}.case-hero > :nth-child(3){animation-delay:.2s}
+.case-hero > :nth-child(4){animation-delay:.3s}.case-hero > :nth-child(5){animation-delay:.4s}
+@keyframes rise{to{opacity:1;transform:none}}
+.kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:1em;font:600 13px var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);background:var(--accent-tint);border:1px solid var(--accent-soft);padding:5px 12px;border-radius:99px}
+.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.case-hero h1{font-size:clamp(1.8rem,4.6vw,2.6rem)}
+.case-hero .sub{font-size:1.2rem;margin-top:1em;line-height:1.65;max-width:52rem}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9.5rem),1fr));gap:18px 24px;margin:2.4em 0 0;padding:1.4em 0;border-block:1px solid var(--line-2)}
+.meta dt{font:600 12px var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--soft)}
+.meta dd{margin:.3em 0 0;font-size:15px;line-height:1.5;color:var(--ink)}
+.nda{display:flex;gap:12px;align-items:flex-start;margin-top:2em;padding:1em 1.2em;background:#FFF8E6;border:1px solid #F2DFA8;border-radius:4px;font-size:15px;line-height:1.6;color:#5A4A1A}
+.nda svg{flex:none;width:20px;height:20px;margin-top:2px;color:#B7861B}
+.nda b{color:#3F3410}
+
+/* "In short": problem, insight, impact */
+.tldr{margin-top:2.4em;background:var(--tint);border:1px solid var(--line);border-inline-start:4px solid var(--accent);border-radius:6px;padding:1.5em 1.6em}
+.tldr h2{font-size:1rem;margin-bottom:.8em}
+.tldr ul{margin:0;padding:0;list-style:none;display:grid;gap:.8em}
+.tldr li{display:grid;grid-template-columns:6.5rem 1fr;gap:12px;font-size:16px;line-height:1.6}
+.tldr li span{font:600 12px/1.9 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--soft)}
+@media (max-width:480px){ .tldr li{grid-template-columns:1fr;gap:0} }
+
+/* Sections after the timeline */
+section{margin-top:3.6em}
+section > h2{font-size:clamp(1.3rem,3vw,1.6rem);position:relative;padding-bottom:.6em;margin-bottom:1em}
+section > h2::after{content:"";position:absolute;inset-inline-start:0;bottom:0;width:3em;height:3px;background:var(--accent)}
+section > h2 .n{display:block;margin-bottom:.5em;font:600 13px var(--body);letter-spacing:.05em;color:var(--accent-deep)}
+
+/* ===== Timeline ===== */
+.story{list-style:none;margin:3em 0 0;padding:0;position:relative}
+.story::before{content:"";position:absolute;inset-inline-start:15px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.step{position:relative;padding-block-end:3.2em;padding-inline-start:52px}
+.step:last-child{padding-block-end:0}
+.dot{position:absolute;inset-inline-start:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--on-accent);font:700 14px/32px var(--body);text-align:center;box-shadow:0 0 0 5px #fff}
+.step .when{font:600 12px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-deep)}
+.step h2{font-size:clamp(1.2rem,2.8vw,1.45rem);margin:.25em 0 .5em}
+.step > p{font-size:16px;max-width:48rem}
+.vis{margin-top:1.3em;padding:1.4em;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
+.vis .cap,.cap{font-size:13px;color:var(--muted);margin-top:.9em;line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;margin-bottom:1em}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-inline-end:6px;vertical-align:-1px}
+
+/* Rings: one share of a whole. --p is the percentage, --c the colour. */
+.rings{display:flex;flex-wrap:wrap;gap:22px 34px;align-items:center}
+.ring{display:flex;align-items:center;gap:14px}
+.ring i{--p:50;width:76px;height:76px;border-radius:50%;flex:none;background:conic-gradient(var(--c,var(--s1)) calc(var(--p)*1%),var(--track) 0);display:grid;place-items:center}
+.ring i::after{content:"";width:56px;height:56px;border-radius:50%;background:var(--paper)}
+.ring b{display:block;font:700 1.6rem/1 var(--head);color:var(--ink)}
+.ring span{font-size:14px;line-height:1.4}
+
+/* People: "4 in 5" as an icon row */
+.people-row{display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center}
+.people{display:flex;gap:6px;align-items:flex-end}
+.people svg{width:34px;height:44px}
+.people .on{fill:var(--s2)}.people .off{fill:var(--off)}
+.people-row p{font-size:15px;max-width:22rem}
+
+/* Bars: one or two values per row; every value is printed as text */
+.rows{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:4px 14px;align-items:center;font-size:14px;line-height:1.35}
+.bars{display:grid;gap:3px}
+.bars div{display:flex;align-items:center;gap:8px}
+.bars .b{display:block;height:12px;border-radius:0 4px 4px 0;min-width:2px}
+[dir=rtl] .bars .b{border-radius:4px 0 0 4px}
+.bars .v{font-size:13px;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.row:hover .lbl{color:var(--ink)}
+.row:hover .b{filter:brightness(.92)}
+
+/* Diverging bars: change after launch, centred on zero */
+.div-rows{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.div-row{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr) 4.2rem;gap:12px;align-items:center;font-size:14px}
+.div-track{position:relative;height:14px}
+.div-track::before{content:"";position:absolute;inset-inline-start:50%;top:-4px;bottom:-4px;width:1px;background:#B9C6CF}
+.div-track i{position:absolute;top:0;height:100%;border-radius:4px}
+.div-track i.neg{inset-inline-end:50%}.div-track i.pos{inset-inline-start:50%}
+.div-row .v{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;text-align:end}
+
+/* Big numbers side by side */
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));gap:18px}
+.split .big{font:700 2rem/1 var(--head);color:var(--ink)}
+.split p{font-size:14.5px;margin-top:.4em;line-height:1.5}
+
+/* Groups compared (segments, personas, rounds) */
+.vs{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;text-align:center}
+.vs .grp{flex:1 1 11rem;max-width:15rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:1em}
+.vs .grp i{display:block;width:14px;height:14px;border-radius:4px;margin:0 auto}
+.vs .grp b{display:block;font:700 1.05rem var(--head);color:var(--ink);margin:.35em 0 .2em}
+.vs .grp span{font-size:13.5px;color:var(--muted)}
+.vs .x{font:700 1rem var(--head);color:var(--soft)}
+
+/* Chips: a short list of labels ("same on all of these", topics, hints) */
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chips span{font-size:13.5px;padding:.3em .9em;border-radius:99px;background:var(--bar);color:#2E4453}
+.chips + .cap{text-align:center}
+
+/* Hypotheses: what we suspected before the study */
+.hypotheses{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:10px}
+.hypotheses div{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:8px;padding:.7em .9em;font-size:14.5px;line-height:1.45}
+.hypotheses div::before{content:"?";flex:none;width:22px;height:22px;border-radius:50%;background:var(--accent-tint);border:1px solid var(--accent-soft);color:var(--accent-deep);font:700 13px/20px var(--body);text-align:center}
+.hypotheses div.yes::before{content:"✓";background:#E3F2E6;border-color:#B9DEC1;color:#1E6B34}
+.hypotheses div.no{color:var(--muted)}
+.hypotheses div.no::before{content:"✕";background:var(--bar);border-color:var(--line);color:var(--muted)}
+
+/* Flow: steps in a process or a vicious cycle */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.flow .box{flex:1 1 9rem;background:#fff;border:1px solid var(--line);border-radius:8px;padding:.8em 1em;font-size:14.5px;line-height:1.45;text-align:center}
+.flow .box b{display:block;font-size:13px;color:var(--soft);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.2em}
+.flow .box.hot{border-color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
+.flow .arrow{color:var(--accent-deep);font:700 20px var(--body)}
+[dir=rtl] .flow .arrow{transform:scaleX(-1)}
+.flow-back{font-size:13px;color:var(--muted);text-align:center;margin-top:.8em}
+
+/* Journey: stages with what people felt or struggled with */
+.journey{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr));gap:10px}
+.journey li{background:#fff;border:1px solid var(--line);border-radius:8px;padding:.8em .9em;font-size:14px;line-height:1.45}
+.journey li b{display:block;font:700 .98rem var(--head);color:var(--ink);margin-bottom:.3em}
+.journey .pain,.journey .gain{display:table;margin-top:.5em;font-size:12px;font-weight:600;padding:2px 9px;border-radius:99px}
+.journey .pain{background:#FDE9E1;color:#8C3A17}
+.journey .gain{background:#E3F2E6;color:#1E6B34}
+
+/* Quotes from participants */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:12px}
+.quote{margin:0;padding:1em 1.2em;background:#fff;border:1px solid var(--line);border-inline-start:3px solid var(--accent);border-radius:6px;font-style:italic;color:var(--ink);font-size:15.5px;line-height:1.6}
+.quote cite{display:block;margin-top:.5em;font-style:normal;font-size:13px;color:var(--muted)}
+
+/* Phone mock-up: a simplified sketch of the shipped screen (not a real screenshot) */
+.mock{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.phone{width:240px;border:2px solid var(--ink2);border-radius:22px;padding:16px 14px;background:#fff;box-shadow:0 14px 30px -20px rgba(31,42,51,.5);font-size:13px}
+.phone .ph-row{display:flex;justify-content:space-between;gap:8px;color:var(--muted)}
+.phone .ph-big{font:700 1.6rem/1.2 var(--head);color:var(--ink);margin:.35em 0 .3em}
+.phone .ph-meter{height:10px;border-radius:99px;background:var(--track);overflow:hidden}
+.phone .ph-meter i{display:block;height:100%;width:var(--p,70%);background:linear-gradient(90deg,var(--accent),#1baf7a);border-radius:99px;animation:fill 1.6s cubic-bezier(.2,.7,.2,1) .4s both}
+@keyframes fill{from{width:0}}
+.phone .ph-chip{display:inline-block;margin:.5em .3em 0 0;padding:.15em .7em;border-radius:99px;background:var(--accent-tint);border:1px solid var(--accent-soft);color:var(--ink2);font-weight:600;font-size:12px}
+.phone .ph-btn{margin-top:1em;background:var(--ink2);color:#fff;text-align:center;border-radius:99px;padding:.55em;font-size:14px;font-weight:600}
+.mock .side{flex:1 1 14rem}
+
+/* Tiers / levels: a key with a short description each */
+.tiers{display:grid;gap:8px;font-size:14.5px}
+.tier{display:flex;align-items:center;gap:10px}
+.tier span{display:inline-block;min-width:6.5rem;text-align:center;padding:.3em .8em;border-radius:99px;font-weight:600;font-size:13px}
+.tier .k1{background:var(--ink2);color:#fff}.tier .k2{background:var(--accent-soft);color:var(--ink)}.tier .k3{background:var(--track);color:#2E4453}
+
+/* Screens: real, cleaned screenshots side by side (before / after) */
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:16px;margin:0}
+.shots figure{margin:0}
+.shots img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+.shots figcaption{font-size:13px;color:var(--muted);margin-top:.5em;text-align:center}
+
+/* Recommendations at a glance */
+.next-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.next-list li{display:flex;gap:10px;align-items:center;font-size:15px;line-height:1.5}
+.status{display:inline-block;flex:none;min-width:7.2rem;text-align:center;font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px;white-space:nowrap}
+.status.shipped{background:#E3F2E6;color:#1E6B34}
+.status.tested{background:#E8F0FB;color:#1C4F8F}
+.status.dev{background:#FFF4D6;color:#6B5200}
+.status.later{background:var(--bar);color:#55636D}
+.status.dropped{background:#F3F3F3;color:#6B6B6B;text-decoration:line-through}
+
+/* Previous / next case study */
+.next{margin-top:4em;padding-top:2em;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.wrap .next a{display:block;max-width:20rem;background:none;transition:transform .25s}
+.next a:last-child{text-align:end}
+.next small{display:block;font:600 12px var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--soft)}
+.next strong{font-family:var(--head);color:inherit}
+.wrap .next a:hover{color:var(--ink);transform:translateX(3px)}
+.wrap .next a:first-child:hover{transform:translateX(-3px)}
+
+/* Right-to-left pages: keep signed numbers like +8% and 21% → 13% in reading order */
+[dir=rtl] .v,[dir=rtl] .big,[dir=rtl] .ring b,[dir=rtl] .people-row p b{direction:ltr;unicode-bidi:isolate}
+
+/* Small screens */
+@media (max-width:560px){
+  .row{grid-template-columns:1fr}
+  .div-row{grid-template-columns:1fr 3.6rem}
+  .div-row .lbl{grid-column:1 / -1}
+  .flow{flex-direction:column;align-items:stretch}
+  .flow .arrow{text-align:center;transform:rotate(90deg)}
+  .vs{flex-direction:column}
+  .vs .grp{flex:none;width:100%;max-width:none}
+  .story::before{inset-inline-start:13px}
+  .dot{width:28px;height:28px;line-height:28px}
+  .step{padding-inline-start:44px}
+  .vis{padding:1.1em}
+  .next-list li{flex-direction:column;align-items:flex-start;gap:2px}
+}
+/* Wide screens: wider column, smaller side margins */
+@media (min-width:900px){
+  .wrap{max-width:76rem;padding-inline:48px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .case-hero > *{opacity:1;transform:none}
+  mark{background-size:100% 100%}
+}

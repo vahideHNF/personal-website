@@ -1,0 +1,13 @@
+schema_version: "1.1"
+name: full-build-from-brief
+expected_outcome: |
+  A complete site folder: index.html with three question-titled case-study cards,
+  an ATS-friendly resume.html that prints to at most two A4 pages, and three
+  case-study timeline pages. Teal accent and the modern fonts. Fernwise pages use
+  changed numbers with the illustrative-numbers note and never show the real
+  Fernwise results or the internal name "Project Sprout"; the Tilia Health page
+  uses its real, public numbers with no note. The resume shows the real results.
+  check_site.py passes with no errors, and the final message lists assumptions
+  and explains how to publish.
+context:
+  scaffold_script: place-files.sh
